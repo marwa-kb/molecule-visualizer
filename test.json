@@ -1,0 +1,161 @@
+{
+	"chem_comp": {
+		"formula": "C6 H13 N O3",
+		"formula_weight": 147.172,
+		"id": "0E5",
+		"mon_nstd_parent_comp_id": ["THR"],
+		"name": "(2S,3R)-2-azanyl-3-methyl-3-oxidanyl-pentanoic acid",
+		"one_letter_code": "T",
+		"pdbx_ambiguous_flag": "N",
+		"pdbx_formal_charge": 0,
+		"pdbx_initial_date": "2011-12-22T00:00:00+0000",
+		"pdbx_modified_date": "2023-11-03T00:00:00+0000",
+		"pdbx_processing_site": "RCSB",
+		"pdbx_release_status": "REL",
+		"three_letter_code": "0E5",
+		"type": "L-peptide linking"
+	},
+	"pdbx_chem_comp_audit": [
+		{
+			"action_type": "Create component",
+			"comp_id": "0E5",
+			"date": "2011-12-22T00:00:00+0000",
+			"ordinal": 1
+		},
+		{
+			"action_type": "Modify name",
+			"comp_id": "0E5",
+			"date": "2012-01-12T00:00:00+0000",
+			"ordinal": 2
+		},
+		{
+			"action_type": "Modify backbone",
+			"comp_id": "0E5",
+			"date": "2023-11-03T00:00:00+0000",
+			"ordinal": 3
+		}
+	],
+	"pdbx_chem_comp_descriptor": [
+		{
+			"comp_id": "0E5",
+			"descriptor": "O=C(O)C(N)C(O)(C)CC",
+			"program": "ACDLabs",
+			"program_version": "12.01",
+			"type": "SMILES"
+		},
+		{
+			"comp_id": "0E5",
+			"descriptor": "InChI=1S/C6H13NO3/c1-3-6(2,10)4(7)5(8)9/h4,10H,3,7H2,1-2H3,(H,8,9)/t4-,6?/m1/s1",
+			"program": "InChI",
+			"program_version": "1.03",
+			"type": "InChI"
+		},
+		{
+			"comp_id": "0E5",
+			"descriptor": "XHNHHUFIUAJZNF-NJXYFUOMSA-N",
+			"program": "InChI",
+			"program_version": "1.03",
+			"type": "InChIKey"
+		},
+		{
+			"comp_id": "0E5",
+			"descriptor": "CC[C@](C)(O)[C@H](N)C(O)=O",
+			"program": "CACTVS",
+			"program_version": "3.370",
+			"type": "SMILES_CANONICAL"
+		},
+		{
+			"comp_id": "0E5",
+			"descriptor": "CC[C](C)(O)[CH](N)C(O)=O",
+			"program": "CACTVS",
+			"program_version": "3.370",
+			"type": "SMILES"
+		},
+		{
+			"comp_id": "0E5",
+			"descriptor": "CC[C@](C)([C@@H](C(=O)O)N)O",
+			"program": "OpenEye OEToolkits",
+			"program_version": "1.7.6",
+			"type": "SMILES_CANONICAL"
+		},
+		{
+			"comp_id": "0E5",
+			"descriptor": "CCC(C)(C(C(=O)O)N)O",
+			"program": "OpenEye OEToolkits",
+			"program_version": "1.7.6",
+			"type": "SMILES"
+		}
+	],
+	"pdbx_chem_comp_identifier": [
+		{
+			"comp_id": "0E5",
+			"identifier": "(2S,3S)-2-amino-3-hydroxy-3-methylpentanoic acid (non-preferred name)",
+			"program": "ACDLabs",
+			"program_version": "12.01",
+			"type": "SYSTEMATIC NAME"
+		},
+		{
+			"comp_id": "0E5",
+			"identifier": "(2S,3R)-2-azanyl-3-methyl-3-oxidanyl-pentanoic acid",
+			"program": "OpenEye OEToolkits",
+			"program_version": "1.7.6",
+			"type": "SYSTEMATIC NAME"
+		}
+	],
+	"rcsb_chem_comp_container_identifiers": {
+		"comp_id": "0E5",
+		"rcsb_id": "0E5"
+	},
+	"rcsb_chem_comp_descriptor": {
+		"comp_id": "0E5",
+		"in_ch_i": "InChI=1S/C6H13NO3/c1-3-6(2,10)4(7)5(8)9/h4,10H,3,7H2,1-2H3,(H,8,9)/t4-,6?/m1/s1",
+		"in_ch_ikey": "XHNHHUFIUAJZNF-NJXYFUOMSA-N",
+		"smiles": "CCC(C)(C(C(=O)O)N)O",
+		"smilesstereo": "CC[C@](C)([C@@H](C(=O)O)N)O"
+	},
+	"rcsb_chem_comp_info": {
+		"atom_count": 23,
+		"atom_count_chiral": 2,
+		"atom_count_heavy": 10,
+		"bond_count": 22,
+		"bond_count_aromatic": 0,
+		"comp_id": "0E5",
+		"initial_deposition_date": "2011-12-22T00:00:00+0000",
+		"initial_release_date": "2012-08-01T00:00:00+0000",
+		"release_status": "REL",
+		"revision_date": "2023-11-03T00:00:00+0000"
+	},
+	"rcsb_chem_comp_related": [
+		{
+			"comp_id": "0E5",
+			"ordinal": 1,
+			"related_mapping_method": "matching InChIKey in PubChem",
+			"resource_accession_code": "10678392",
+			"resource_name": "PubChem"
+		}
+	],
+	"rcsb_chem_comp_synonyms": [
+		{
+			"comp_id": "0E5",
+			"name": "(2S,3R)-2-azanyl-3-methyl-3-oxidanyl-pentanoic acid",
+			"ordinal": 1,
+			"provenance_source": "PDB Reference Data",
+			"type": "Preferred Name"
+		},
+		{
+			"comp_id": "0E5",
+			"name": "(2S,3S)-2-amino-3-hydroxy-3-methylpentanoic acid (non-preferred name)",
+			"ordinal": 2,
+			"provenance_source": "ACDLabs",
+			"type": "Systematic Name"
+		},
+		{
+			"comp_id": "0E5",
+			"name": "(2S,3R)-2-azanyl-3-methyl-3-oxidanyl-pentanoic acid",
+			"ordinal": 3,
+			"provenance_source": "OpenEye OEToolkits",
+			"type": "Systematic Name"
+		}
+	],
+	"rcsb_id": "0E5"
+}
