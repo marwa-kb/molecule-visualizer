@@ -13,6 +13,7 @@ import eye from "../assets/icons/eye.png";
 import play from "../assets/icons/play.png";
 import emptyHeart from "../assets/icons/heart-empty.png";
 import fullHeart from "../assets/icons/heart-full.png";
+import chevron from "../assets/icons/chevron.png";
 
 export default {
   play,
@@ -29,5 +30,6 @@ export default {
   eyeHide,
   eye,
   emptyHeart,
-  fullHeart
+  fullHeart,
+  chevron
 };

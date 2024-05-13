@@ -1,4 +1,3 @@
-import { StyleSheet, Text, View } from "react-native";
 import { SplashScreen, Stack } from 'expo-router';
 import { useFonts } from "expo-font";
 import { useEffect } from "react";
@@ -26,11 +25,13 @@ const RootLayout = () => {
 	}, [fontsLoaded, error]);
 
 	if (!fontsLoaded && !error)
-		return null;
-	
+		return (null);
+
 	return (
 		<Stack>
-			<Stack.Screen name="index" options={{ headerShown: false }}/>
+			<Stack.Screen name="index" options={{ headerShown: false }} />
+			<Stack.Screen name="molecule/[moleculeId]" options={{ headerShown: false }} />
+			<Stack.Screen name="search/[query]" options={{ headerShown: false }} />
 		</Stack>
 	);
 };
