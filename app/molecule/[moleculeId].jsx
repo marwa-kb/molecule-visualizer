@@ -32,7 +32,7 @@ const MoleculeCard = () => {
 
 			<View className="h-[50vh] w-[3px] bg-white self-center absolute mt-[200px]"></View>
 
-			<MoleculeView />
+			<MoleculeView moleculeId={moleculeId}/>
 		</SafeAreaView>
 	);
 };
