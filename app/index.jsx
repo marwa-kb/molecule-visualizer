@@ -25,12 +25,12 @@ export default function App() {
 				data={data}
 				keyExtractor={(molecule) => molecule}
 				renderItem={(({ item }) => {
-					return (<MoleculeInfoCard id={item} touchable={true} />);
+					return (<MoleculeInfoCard id={item} touchable />);
 				})}
 				ListHeaderComponent={() => (
 					<View className="pb-5 bg-primary">
 						<Text className="text-2xl font-pbold mb-3 -tracking-[1px]">Ligands</Text>
-						<SearchInput placeholder="001" />
+						<SearchInput placeholder="search a ligand" />
 					</View>
 				)}
 				ListEmptyComponent={() => (
@@ -43,7 +43,7 @@ export default function App() {
 				onEndReached={() => setLength(prev => prev + 20)}
 			/>
 
-			<StatusBar backgroundColor="#ffffff" style="auto" />
+			<StatusBar backgroundColor="#ffffff" style="dark" />
 		</SafeAreaView>
 	);
 }

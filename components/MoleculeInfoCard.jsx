@@ -23,7 +23,7 @@ const FormattedFormula = (props) => {
 }
 
 const MoleculeInfoCard = (props) => {
-	console.log("here in m info card, ", props.id)
+	// console.log("here in m info card, ", props.id)
 
 	return (
 		<TouchableOpacity

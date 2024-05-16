@@ -5,6 +5,7 @@ import MoleculeInfoCard from "../../components/MoleculeInfoCard";
 import SearchInput from "../../components/SearchInput";
 import EmptyState from "../../components/EmptyState";
 import GoBack from "../../components/GoBack";
+import { StatusBar } from "expo-status-bar";
 
 const Search = () => {
 	const { query } = useLocalSearchParams();
@@ -16,7 +17,7 @@ const Search = () => {
 				data={result}
 				keyExtractor={(item) => item}
 				renderItem={({ item }) => (
-					<MoleculeInfoCard id={item} touchable={true} />
+					<MoleculeInfoCard id={item} touchable />
 				)}
 				ListHeaderComponent={() => (
 					<View className="pb-5 bg-primary">
@@ -32,6 +33,8 @@ const Search = () => {
 				)}
 				stickyHeaderIndices={[0]}
 			/>
+
+			<StatusBar backgroundColor="#ffffff" style="auto" />
 		</SafeAreaView>
 	);
 }
