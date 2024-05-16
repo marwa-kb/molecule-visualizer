@@ -5,18 +5,29 @@ import SearchInput from "../components/SearchInput";
 import MoleculeInfoCard from "../components/MoleculeInfoCard";
 import EmptyState from "../components/EmptyState";
 import ligands from "../lib/ligands";
+import { useCallback, useEffect, useState } from "react";
 
 export default function App() {
-	const data = ligands;
+	const [length, setLength] = useState(20);
+	const [data, setData] = useState(ligands.slice(0, length));
+
+	const renderMoleculeItem = useCallback(({ item }) => {
+		return (<MoleculeInfoCard id={item} touchable={true} />);
+	}, []);
+
+	useEffect(() => {
+		console.log("append data called, ", length)
+		setData(ligands.slice(0, length));
+	}, [length]);
 
 	return (
 		<SafeAreaView className="h-full bg-primary p-6 justify-start">
 			<FlatList
 				data={data}
 				keyExtractor={(molecule) => molecule}
-				renderItem={({ item }) => (
-					<MoleculeInfoCard id={item} touchable={true} />
-				)}
+				renderItem={(({ item }) => {
+					return (<MoleculeInfoCard id={item} touchable={true} />);
+				})}
 				ListHeaderComponent={() => (
 					<View className="mb-6">
 						<Text className="text-2xl font-pbold mb-3 -tracking-[1px]">Ligands</Text>
@@ -28,6 +39,8 @@ export default function App() {
 						title="No Molecules Found"
 					/>
 				)}
+				onEndReachedThreshold={0.5}
+				onEndReached={() => setLength(prev => prev + 20)}
 			/>
 
 			<StatusBar backgroundColor="#ffffff" style="auto" />

@@ -15,6 +15,7 @@ const TestScene = () => {
 	return (
 		<ViroScene
 			onCPress={console.log("pressed")}
+			style={styles.container}
 		>
 		<ViroText
 			text="Hello World"

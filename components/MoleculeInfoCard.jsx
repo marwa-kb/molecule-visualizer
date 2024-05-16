@@ -1,5 +1,6 @@
-import { View, Text, TouchableOpacity } from "react-native";
-import { router, usePathname } from "expo-router";
+import { View, Text, TouchableOpacity, ActivityIndicator } from "react-native";
+import { router } from "expo-router";
+import { memo } from "react";
 
 const FormattedFormula = (props) => {
 	if (!props.formula)
@@ -22,29 +23,31 @@ const FormattedFormula = (props) => {
 }
 
 const MoleculeInfoCard = (props) => {
-	const pathname = usePathname();
+	console.log("here in m info card, ", props.id)
 
 	return (
 		<TouchableOpacity
-			className="mb-5 rounded-[4px] bg-white py-4 px-5"
+			className="mb-5 rounded-[4px] bg-white py-4 px-5 z-10"
 			activeOpacity={props.touchable ? 0.6 : 1}
 			onPress={() => props.touchable && router.push(`/molecule/${props.id}`)}
 		>
 			<View className="flex-row justify-between mb-3 items-start">
 				<Text className="font-psemibold text-xl">{props.id}</Text>
 				{
-					props.item &&
+					!props.isLoading && props.item &&
 						<FormattedFormula formula={props.item?.chem_comp?.formula} />
 				}
 			</View>
 			{
-				props.item &&
-				<Text className="font-plight text-xs">
-					{props.item?.chem_comp?.name?.toLowerCase()}
-				</Text>
+				props.isLoading ?
+					<ActivityIndicator color="#000000" size="large" className="mb-4" />
+				: props.item &&
+					<Text className="font-plight text-xs mb-3">
+						{props.item?.chem_comp?.name?.toLowerCase()}
+					</Text>
 			}
 		</TouchableOpacity>
 	);
 };
 
-export default MoleculeInfoCard;
+export default memo(MoleculeInfoCard);
