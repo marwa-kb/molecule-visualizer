@@ -19,7 +19,7 @@ const Search = () => {
 					<MoleculeInfoCard id={item} touchable={true} />
 				)}
 				ListHeaderComponent={() => (
-					<View className="mb-4">
+					<View className="pb-5 bg-primary">
 						<GoBack containerStyles="border"/>
 						<SearchInput placeholder="Search for a molecule" initialQuery={query}/>
 						<Text className="text-xl font-psemibold -tracking-[1px] pl-1 mt-6 ml-1">Search Results</Text>
@@ -30,6 +30,7 @@ const Search = () => {
 						title="No Correspondance Found"
 					/>
 				)}
+				stickyHeaderIndices={[0]}
 			/>
 		</SafeAreaView>
 	);

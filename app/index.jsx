@@ -11,12 +11,11 @@ export default function App() {
 	const [length, setLength] = useState(20);
 	const [data, setData] = useState(ligands.slice(0, length));
 
-	const renderMoleculeItem = useCallback(({ item }) => {
-		return (<MoleculeInfoCard id={item} touchable={true} />);
-	}, []);
+	// const renderMoleculeItem = useCallback(({ item }) => {
+	// 	return (<MoleculeInfoCard id={item} touchable={true} />);
+	// }, []);
 
 	useEffect(() => {
-		console.log("append data called, ", length)
 		setData(ligands.slice(0, length));
 	}, [length]);
 
@@ -29,7 +28,7 @@ export default function App() {
 					return (<MoleculeInfoCard id={item} touchable={true} />);
 				})}
 				ListHeaderComponent={() => (
-					<View className="mb-6">
+					<View className="pb-5 bg-primary">
 						<Text className="text-2xl font-pbold mb-3 -tracking-[1px]">Ligands</Text>
 						<SearchInput placeholder="001" />
 					</View>
@@ -39,6 +38,7 @@ export default function App() {
 						title="No Molecules Found"
 					/>
 				)}
+				stickyHeaderIndices={[0]}
 				onEndReachedThreshold={0.5}
 				onEndReached={() => setLength(prev => prev + 20)}
 			/>
