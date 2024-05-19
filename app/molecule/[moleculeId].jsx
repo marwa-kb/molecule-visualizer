@@ -7,6 +7,7 @@ import MoleculeInfoCard from "../../components/MoleculeInfoCard";
 import MoleculeView from "../../components/MoleculeView";
 import GoBack from "../../components/GoBack";
 import { StatusBar } from "expo-status-bar";
+import style from "../../constants/style";
 
 const MoleculeCard = () => {
 	const { moleculeId } = useLocalSearchParams();
@@ -29,11 +30,14 @@ const MoleculeCard = () => {
 
 	return (
 		<SafeAreaView className="h-full bg-primary p-6 justify-start">
-			<GoBack containerStyles="bg-white"/>
+			<GoBack containerStyles="bg-white" />
 
 			<MoleculeInfoCard id={moleculeId} item={molecule} isLoading={isLoading} />
 
-			<View className="h-[50vh] w-[3px] bg-white self-center absolute mt-[200px] z-0"></View>
+			<View
+				className="h-[50vh] w-[3px] bg-white self-center absolute mt-[200px] z-0"
+				style={style.boxShadow}
+			></View>
 
 			<MoleculeView moleculeId={moleculeId}/>
 

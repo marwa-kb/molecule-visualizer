@@ -1,0 +1,106 @@
+ViroAnimations.registerAnimations({
+	loopRotate:{
+		properties:{
+			rotateY: "+=45"
+		}, 
+			duration:1000
+		},
+});
+
+const TestScene = ({ molecule }) => {
+	// const spheres = molecule.atoms.map
+
+	return (
+		<ViroScene>
+			<Viro360Image
+				source={require("../assets/white_bg.png")} 
+			/>
+			<ViroLightingEnvironment source={require('../assets/test.jpg')}/>
+			<ViroOmniLight
+				intensity={300}
+				position={[-10, 10, 1]}
+				color={"#FFFFFF"}
+				attenuationStartDistance={20}
+				attenuationEndDistance={30} />
+			<ViroOmniLight
+				intensity={300}
+				position={[10, 10, 1]}
+				color={"#FFFFFF"}
+				attenuationStartDistance={20}
+				attenuationEndDistance={30} />
+			<ViroOmniLight
+				intensity={300}
+				position={[-10, -10, 1]}
+				color={"#FFFFFF"}
+				attenuationStartDistance={20}
+				attenuationEndDistance={30} />
+			<ViroOmniLight
+				intensity={300}
+				position={[10, -10, 1]}
+				color={"#FFFFFF"}
+				attenuationStartDistance={20}
+				attenuationEndDistance={30} />
+	
+			<ViroSphere
+				position={[-3, 6, -9]}
+				radius={1}
+				materials={"H"}
+			/>
+			<ViroSphere
+				position={[0, 6, -9]}
+				radius={1}
+				materials={"C"}
+			/>
+			<ViroSphere
+				position={[3, 6, -9]}
+				radius={1}
+				materials={"O"}
+			/>
+			<ViroSphere
+				position={[-3, 2, -9]}
+				radius={1}
+				materials={"N"}
+			/>
+			<ViroSphere
+				position={[0, 2, -9]}
+				radius={1}
+				materials={"F"}
+			/>
+			<ViroSphere
+				position={[3, 2, -9]}
+				radius={1}
+				materials={"P"}
+			/>
+			<ViroSphere
+				position={[-3, -2, -9]}
+				radius={1}
+				materials={"sphereA"}
+			/>
+			<ViroSphere
+				position={[0, -2, -9]}
+				radius={1}
+				materials={"sphereB"}
+			/>
+			<ViroSphere
+				position={[3, -2, -9]}
+				radius={1}
+				materials={"sphereC"}
+			/>
+			<ViroSphere
+				position={[-3, -6, -9]}
+				radius={1}
+				materials={"sphereD"}
+			/>
+			<ViroSphere
+				position={[0, -6, -9]}
+				radius={1}
+				materials={"sphereF"}
+			/>
+			<ViroSphere
+				position={[3, -6, -9]}
+				radius={1}
+				materials={"sphereE"}
+			/>
+	  </ViroScene>
+	);
+};

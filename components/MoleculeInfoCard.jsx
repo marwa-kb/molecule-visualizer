@@ -1,6 +1,7 @@
-import { View, Text, TouchableOpacity, ActivityIndicator } from "react-native";
+import { View, Text, TouchableOpacity, ActivityIndicator, StyleSheet } from "react-native";
 import { router } from "expo-router";
 import { memo } from "react";
+import style from "../constants/style";
 
 const FormattedFormula = (props) => {
 	if (!props.formula)
@@ -23,11 +24,10 @@ const FormattedFormula = (props) => {
 }
 
 const MoleculeInfoCard = (props) => {
-	// console.log("here in m info card, ", props.id)
-
 	return (
 		<TouchableOpacity
 			className="mb-5 rounded-[4px] bg-white py-4 px-5 z-10"
+			style={style.boxShadow}
 			activeOpacity={props.touchable ? 0.6 : 1}
 			onPress={() => props.touchable && router.push(`/molecule/${props.id}`)}
 		>

@@ -4,7 +4,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import SearchInput from "../components/SearchInput";
 import MoleculeInfoCard from "../components/MoleculeInfoCard";
 import EmptyState from "../components/EmptyState";
-import ligands from "../lib/ligands";
+import ligands from "../constants/ligands";
 import { useCallback, useEffect, useState } from "react";
 
 export default function App() {

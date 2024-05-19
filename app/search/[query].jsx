@@ -6,6 +6,8 @@ import SearchInput from "../../components/SearchInput";
 import EmptyState from "../../components/EmptyState";
 import GoBack from "../../components/GoBack";
 import { StatusBar } from "expo-status-bar";
+import ligands from "../../constants/ligands";
+
 
 const Search = () => {
 	const { query } = useLocalSearchParams();
@@ -21,7 +23,7 @@ const Search = () => {
 				)}
 				ListHeaderComponent={() => (
 					<View className="pb-5 bg-primary">
-						<GoBack containerStyles="border"/>
+						<GoBack containerStyles="border bg-primary"/>
 						<SearchInput placeholder="Search for a molecule" initialQuery={query}/>
 						<Text className="text-xl font-psemibold -tracking-[1px] pl-1 mt-6 ml-1">Search Results</Text>
 					</View>
