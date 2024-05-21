@@ -1,4 +1,4 @@
-rootProject.name = 'molecule-visualizer'
+rootProject.name = 'Molecule Visualizer'
 
 dependencyResolutionManagement {
   versionCatalogs {
