@@ -1,6 +1,6 @@
 # Molecule Visualizer
 #### _[in progress]_
-✅ Search and retrieve PDB files from [ RCSB ](https://www.rcsb.org/)  
+>✅ Search and retrieve PDB files from [ RCSB ](https://www.rcsb.org/)  
 ✅ Parse PDB file to get coordinates of each atom  
 ✅ Modelize atoms in 3D and the bonds connecting them together  
 🔲 Manage touch gestures to rotate the molecule and zoom in/out  

@@ -7,8 +7,8 @@ const GoBack = (props) => {
 	return (
 		<TouchableOpacity
 			className="h-10 justify-center mb-5"
-			onPress={() => router.back()}
-			activeOpacity={.8}
+			onPress={() => router.replace("/")}
+			activeOpacity={1}
 		>
 			<View
 				className={`w-10 h-10 rounded-full justify-center items-center ${props.containerStyles}`} 

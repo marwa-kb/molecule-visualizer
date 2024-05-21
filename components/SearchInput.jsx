@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { View, TextInput, Image, Alert } from "react-native";
+import { View, TextInput, Image, Text } from "react-native";
 import { icons } from "../constants";
-import { router, usePathname } from "expo-router";
+import { router } from "expo-router";
 import style from "../constants/style";
 
 const SearchInput = (props) => {
@@ -18,7 +18,7 @@ const SearchInput = (props) => {
 				resizeMode="contain"
 			/>
 			<TextInput
-				className="w-[85%]"
+				className="w-[80%]"
 				value={query}
 				placeholder={props.placeholder}
 				placeholderTextColor="#989898"
@@ -26,6 +26,15 @@ const SearchInput = (props) => {
 				returnKeyType="search"
 				onSubmitEditing={() => query && router.push(`/search/${query}`)}
 			/>
+			{
+				query?.length > 0 &&
+					<Text
+						className="w-4 mx-1"
+						onPress={() => setQuery("")}
+					>
+						⨉
+					</Text>
+			}
 		</View>
 	);
 };

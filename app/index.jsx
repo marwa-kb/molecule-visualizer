@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { Text, View, FlatList, Alert } from "react-native";
+import { Text, View, FlatList, Alert, ActivityIndicator } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import SearchInput from "../components/SearchInput";
 import MoleculeInfoCard from "../components/MoleculeInfoCard";
@@ -10,10 +10,6 @@ import { useCallback, useEffect, useState } from "react";
 export default function App() {
 	const [length, setLength] = useState(20);
 	const [data, setData] = useState(ligands.slice(0, length));
-
-	// const renderMoleculeItem = useCallback(({ item }) => {
-	// 	return (<MoleculeInfoCard id={item} touchable={true} />);
-	// }, []);
 
 	useEffect(() => {
 		setData(ligands.slice(0, length));
@@ -34,9 +30,7 @@ export default function App() {
 					</View>
 				)}
 				ListEmptyComponent={() => (
-					<EmptyState
-						title="No Molecules Found"
-					/>
+					<ActivityIndicator />
 				)}
 				stickyHeaderIndices={[0]}
 				onEndReachedThreshold={0.5}

@@ -30,7 +30,7 @@ const Search = () => {
 				)}
 				ListEmptyComponent={() => (
 					<EmptyState
-						title="No Correspondance Found"
+						title="No correspondance found"
 					/>
 				)}
 				stickyHeaderIndices={[0]}
