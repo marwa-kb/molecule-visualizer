@@ -41,7 +41,7 @@ const MoleculeCard = () => {
 
 			<MoleculeView moleculeId={moleculeId}/>
 
-			<StatusBar backgroundColor="#ffffff" style="auto" />
+			<StatusBar backgroundColor="#E6F5E0" style="dark" />
 		</SafeAreaView>
 	);
 };

@@ -29,8 +29,7 @@
       "package": "com.mk.moleculeVisualizer"
     },
 	"androidNavigationBar": {
-		"visible": true,
-		"barStyle": "light-content",
+		"barStyle": "dark-content",
 		"backgroundColor": "#E6F5E0"
 	},
     "web": {

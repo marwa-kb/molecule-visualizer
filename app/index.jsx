@@ -43,7 +43,7 @@ export default function App() {
 				onEndReached={() => setLength(prev => prev + 20)}
 			/>
 
-			<StatusBar backgroundColor="#ffffff" style="dark" />
+			<StatusBar backgroundColor="#E6F5E0" style="dark" />
 		</SafeAreaView>
 	);
 }

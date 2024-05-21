@@ -36,7 +36,7 @@ const Search = () => {
 				stickyHeaderIndices={[0]}
 			/>
 
-			<StatusBar backgroundColor="#ffffff" style="auto" />
+			<StatusBar backgroundColor="#E6F5E0" style="dark" />
 		</SafeAreaView>
 	);
 }
