@@ -1,8 +1,19 @@
-import { ViroMaterials } from "@viro-community/react-viro";
+import { ViroAnimations, ViroMaterials } from "@viro-community/react-viro";
 
 const roughness = 0.6;
 const metalness = 0.5;
 const lightingModel = "PBR";
+
+ViroAnimations.registerAnimations({
+	test: {
+		properties: {
+			rotateX: -5,
+			rotateY: -5,
+		},
+		easing: "EaseInEaseOut",
+		duration: 2000,
+	}
+});
 
 ViroMaterials.createMaterials({
 	sphereA: {
@@ -48,8 +59,8 @@ ViroMaterials.createMaterials({
 		diffuseColor: "#FFFFFF"
 	},
 	H: {
-		roughness: roughness,
-		metalness: metalness,
+		roughness: 0.6,
+		metalness: 0.1,
 		lightingModel: lightingModel,
 		diffuseColor: "#FFFFFF"
 	},
@@ -93,7 +104,7 @@ ViroMaterials.createMaterials({
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
-		diffuseColor: "#909090"
+		diffuseColor: "#303030"
 	},
 	C13: {
 		roughness: roughness,

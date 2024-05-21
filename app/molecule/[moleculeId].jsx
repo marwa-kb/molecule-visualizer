@@ -29,7 +29,7 @@ const MoleculeCard = () => {
 	}, []);
 
 	return (
-		<SafeAreaView className="h-full bg-primary p-6 justify-start">
+		<SafeAreaView className="h-full bg-primary p-6 justify-start relative">
 			<GoBack containerStyles="bg-white" />
 
 			<MoleculeInfoCard id={moleculeId} item={molecule} isLoading={isLoading} />
@@ -37,9 +37,9 @@ const MoleculeCard = () => {
 			<View
 				className="h-[50vh] w-[3px] bg-white self-center absolute mt-[200px] z-0"
 				style={style.boxShadow}
-			></View>
+			/>
 
-			<MoleculeView moleculeId={moleculeId}/>
+			<MoleculeView moleculeId={moleculeId} />
 
 			<StatusBar backgroundColor="#E6F5E0" style="dark" />
 		</SafeAreaView>

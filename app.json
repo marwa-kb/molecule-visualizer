@@ -28,6 +28,10 @@
       },
       "package": "com.mk.moleculeVisualizer"
     },
+	"androidStatusBar": {
+		"barStyle": "dark-content",
+		"backgroundColor": "#E6F5E0"
+	},
 	"androidNavigationBar": {
 		"barStyle": "dark-content",
 		"backgroundColor": "#E6F5E0"

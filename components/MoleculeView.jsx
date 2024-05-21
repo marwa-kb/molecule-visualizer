@@ -1,13 +1,17 @@
 import { useEffect, useState } from "react";
-import { View, Alert } from "react-native";
+import { View, Alert, TouchableOpacity, Image } from "react-native";
 import { Viro360Image, Viro3DObject, Viro3DSceneNavigator, ViroAmbientLight, ViroAnimations, ViroBox, ViroCamera, ViroController, ViroLightingEnvironment, ViroMaterials, ViroNode, ViroOmniLight, ViroOrbitCamera, ViroPolyline, ViroScene, ViroSceneNavigator, ViroSkyBox, ViroSphere, ViroSpinner, ViroText } from "@viro-community/react-viro";
 import Molecule from "../classes/Molecule";
 import style from "../constants/style";
 import "../constants/materials";
+import icons from "../constants/icons";
+import { useRotate } from "../utils/useRotate";
 
 const MoleculeScene = (props) => {
 	const molecule = props.sceneNavigator.viroAppProps.molecule;
+	// const rotateX = props.sceneNavigator.viroAppProps.rotateX
 	const [isLoading, setIsLoading] = useState(true);
+	const [camPos, setCamPos] = useState([0, 0, 10]);
 
 	useEffect(() => {
 		if (molecule)
@@ -20,7 +24,15 @@ const MoleculeScene = (props) => {
 					key={atom.id}
 					materials={atom.element}
 					position={atom.coordinates}
-			/>);
+					onClick={(e) => {
+						console.log(e)
+						const x = e[0];
+						const y = e[1];
+						const z = e[2];
+						onTouchStart(x)
+						setCamPos([x, y, z + 3]);
+					}}
+				/>);
 	});
 
 	const bonds = molecule?.getBondsCoords().map((bond, id) => {
@@ -30,31 +42,61 @@ const MoleculeScene = (props) => {
 						bond[0],
 						bond[1],
 					]}
-					thickness={0.2}
+					thickness={.2}
 					materials={"bond"}
 				/>);
 	});
 
+	// const { onTouchStart, onTouchEnd } = useRotate(onSwipeLeft, onSwipeRight, .5);
+
+	// const onSwipeLeft = () => {
+	// 	console.log("swipe left");
+	// };
+
+	// const onSwipeRight = () => {
+	// 	console.log("swipe right");
+	// };
+
+	// const handlePressState = (state, position, source) => {
+	// 	// console.log("position = ", position);
+	// 	if (state == 1)
+	// 		onTouchStart(position);
+	// 	else if (state == 2)
+	// 		onTouchEnd(position);
+	// 	// else if (state == 3)
+	// 	// 	console.log("both")
+	// };
+
 	return (
-		<ViroScene>
+		<ViroScene
+			onClick={(e) => console.log("test, ", e)}
+			// onClickState={handlePressState}
+		>
 			<ViroSkyBox color={"#FFFFFF"} />
 			{
 				!isLoading && molecule ?
-					<>
-						{/* <Viro360Image source={require("../assets/white_bg.png")} /> */}
-						<ViroOrbitCamera
-							position={[6, 15, 5]}
-							focalPoint={[0, 0, 0]}
+					<ViroNode
+						animation={{ name: "test", run: true }}
+					>
+						{/* <ViroOrbitCamera
+							position={[0, 0, 0]}
+							focalPoint={camPos}
+							active={true}
+						/> */}
+						<ViroCamera
+							position={camPos}
+							rotation={[0, 0, 0]} 
 							active={true}
 						/>
-						{/* <ViroCamera position={[0.484, -0.006, 4]} rotation={[0, 0, 0]} active={true} /> */}
+
 			
 						<ViroOmniLight
 							intensity={300}
 							position={[-10, 10, 1]}
 							color={"#FFFFFF"}
 							attenuationStartDistance={20}
-							attenuationEndDistance={30} />
+							attenuationEndDistance={30}
+						/>
 						<ViroOmniLight
 							intensity={300}
 							position={[10, 10, 1]}
@@ -66,16 +108,17 @@ const MoleculeScene = (props) => {
 							position={[-10, -10, 1]}
 							color={"#FFFFFF"}
 							attenuationStartDistance={20}
-							attenuationEndDistance={30} />
-						{/* <ViroOmniLight
+							attenuationEndDistance={30}
+						/>
+						<ViroOmniLight
 							intensity={300}
 							position={[10, -10, 1]}
 							color={"#FFFFFF"}
 							attenuationStartDistance={20}
-							attenuationEndDistance={30} /> */}
+							attenuationEndDistance={30} />
 						{ atoms }
 						{ bonds }
-					</>
+					</ViroNode>
 				:
 					<ViroSpinner
 						type="dark"
@@ -86,9 +129,14 @@ const MoleculeScene = (props) => {
 	);
 }
 
+const screen1 = "h-[70%]";
+const screen2 = "absolute w-[99vw] h-[99vh] z-40 bottom-0 m-auto";
+
 const MoleculeView = (props) => {
 	const [fileData, setFileData] = useState("");
 	const [molecule, setMolecule] = useState(null);
+
+	const [screen, setScreen] = useState(screen1);
 
 	useEffect(() => {
 		const getFile = async () => {
@@ -111,17 +159,40 @@ const MoleculeView = (props) => {
 	}, [fileData]);
 
 	// console.log("here molecule: ", molecule)
+	const { onTouchStart, onTouchEnd } = useRotate(onSwipeLeft, onSwipeRight, 2)
+	const [rotateX, setRotateX] = useState(0);
+    function onSwipeLeft(nb){
+        console.log('SWIPE_LEFT')
+		setRotateX(nb);
+    }
+
+    function onSwipeRight(nb){
+        console.log('SWIPE_RIGHT')
+		setRotateX(nb);
+    }
 
 	return (
-		<View
-			className="h-[70%] bg-white py-4 px-5"
+		<TouchableOpacity
+			className={`${screen} bg-white flex flex-column py-4 px-4`}
 			style={style.boxShadow}
+			activeOpacity={1}
+			onPressIn={onTouchStart}
+			onPressOut={onTouchEnd}
 		>
+			<TouchableOpacity
+				className=" flex items-end w-8 h-8 ml-auto"
+				onPress={() => setScreen(prev => prev === screen1 ? screen2 : screen1)}
+			>
+				<Image
+					source={screen === screen1 ? icons.expand : icons.collapse}
+					className={screen === screen1 ? "w-4 h-4" : "w-5 h-5"}
+				/>
+			</TouchableOpacity>
 			<Viro3DSceneNavigator
 				initialScene={{ scene: MoleculeScene }}
 				viroAppProps={{ molecule: molecule }}
 			/>
-		</View>
+		</TouchableOpacity>
 	);
 };
 
