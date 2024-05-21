@@ -41,7 +41,12 @@ ViroMaterials.createMaterials({
 		lightingModel: lightingModel,
 		diffuseColor: "#FFFFFF"
 	},
-
+	bond: {
+		roughness: 1.0,
+		metalness: 1.0,
+		lightingModel: lightingModel,
+		diffuseColor: "#FFFFFF"
+	},
 	H: {
 		roughness: roughness,
 		metalness: metalness,

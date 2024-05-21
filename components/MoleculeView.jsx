@@ -1,13 +1,18 @@
 import { useEffect, useState } from "react";
 import { View, Alert } from "react-native";
-import { Viro360Image, Viro3DObject, Viro3DSceneNavigator, ViroAmbientLight, ViroAnimations, ViroBox, ViroCamera, ViroController, ViroLightingEnvironment, ViroMaterials, ViroNode, ViroOmniLight, ViroOrbitCamera, ViroPolyline, ViroScene, ViroSceneNavigator, ViroSphere, ViroText } from "@viro-community/react-viro";
+import { Viro360Image, Viro3DObject, Viro3DSceneNavigator, ViroAmbientLight, ViroAnimations, ViroBox, ViroCamera, ViroController, ViroLightingEnvironment, ViroMaterials, ViroNode, ViroOmniLight, ViroOrbitCamera, ViroPolyline, ViroScene, ViroSceneNavigator, ViroSkyBox, ViroSphere, ViroSpinner, ViroText } from "@viro-community/react-viro";
 import Molecule from "../classes/Molecule";
 import style from "../constants/style";
 import "../constants/materials";
 
 const MoleculeScene = (props) => {
 	const molecule = props.sceneNavigator.viroAppProps.molecule;
-	// console.log("conects, ", molecule?.getBondsCoords());
+	const [isLoading, setIsLoading] = useState(true);
+
+	useEffect(() => {
+		if (molecule)
+			setTimeout(() => setIsLoading(false), 1000);
+	}, [molecule]);
 	
 	const atoms = molecule?.atoms.map((atom) => {
 		return (<ViroSphere
@@ -18,33 +23,30 @@ const MoleculeScene = (props) => {
 			/>);
 	});
 
-	const conects = molecule?.getBondsCoords().map((bond, id) => {
-		// console.log("bond = ", bond)
-			return (<ViroPolyline
-						key={id}
-						points={[
-							bond[0],
-							bond[1],
-						]}
-						thickness={0.2}
-						materials={"H"}
-					/>);
+	const bonds = molecule?.getBondsCoords().map((bond, id) => {
+		return (<ViroPolyline
+					key={id}
+					points={[
+						bond[0],
+						bond[1],
+					]}
+					thickness={0.2}
+					materials={"bond"}
+				/>);
 	});
 
 	return (
 		<ViroScene>
+			<ViroSkyBox color={"#FFFFFF"} />
 			{
-				molecule ?
+				!isLoading && molecule ?
 					<>
-						<Viro360Image source={require("../assets/white_bg.png")} />
-						{
-							molecule &&
-								<ViroOrbitCamera
-									position={[6, 15, 5]}
-									focalPoint={[0, 0, 0]}
-									active={true}
-								/>
-						}
+						{/* <Viro360Image source={require("../assets/white_bg.png")} /> */}
+						<ViroOrbitCamera
+							position={[6, 15, 5]}
+							focalPoint={[0, 0, 0]}
+							active={true}
+						/>
 						{/* <ViroCamera position={[0.484, -0.006, 4]} rotation={[0, 0, 0]} active={true} /> */}
 			
 						<ViroOmniLight
@@ -72,16 +74,13 @@ const MoleculeScene = (props) => {
 							attenuationStartDistance={20}
 							attenuationEndDistance={30} /> */}
 						{ atoms }
-						{ conects }
+						{ bonds }
 					</>
 				:
-					<ViroOmniLight
-						intensity={300}
-						position={[10, -10, 1]}
-						color={"#FFFFFF"}
-						attenuationStartDistance={20}
-						attenuationEndDistance={30} />
-
+					<ViroSpinner
+						type="dark"
+						position={[0, 0, -5]}
+					/>
 			}
 	  </ViroScene>
 	);
