@@ -11,6 +11,6 @@ For this project, I am coding a React Native application that allows visualizing
 
 
 ### Explanation
-We start from a very large list of 3-letter codes (001, 38D, C7J, ...) that represents ligands (= ions or neutral molecules that bond to a central metal atom or ion).
-After loading these into our app, the user can select or search one of them, and when selecting one we use the RCSB database to retrieve the corresponding PDB file. This file contains all the data needed for modelizing our ligand. We can find the X, Y and Z coordinates of each atom, and the bonds connecting them together. Thanks to that we can create a 3D visualization of the molecule!
+We start from a very large list of 3-letter codes (001, 38D, C7J, ...) that represents ligands (= ions or neutral molecules that bond to a central metal atom or ion).  
+After loading these into our app, the user can select or search one of them, and when selecting one we use the RCSB database to retrieve the corresponding PDB file. This file contains all the data needed for modelizing our ligand. We can find the X, Y and Z coordinates of each atom, and the bonds connecting them together. Thanks to that we can create a 3D visualization of the molecule!  
 For this, I had to learn how to use the ViroReact library that allows 3D modelisation. Each atom is represented by a "ViroSphere" component, and the bonds are "ViroPolyline" components. These are loaded into a "ViroScene".
