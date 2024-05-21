@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "molecule-visualizer",
+    "name": "Molecule Visualizer",
     "slug": "molecule-visualizer",
     "scheme": "molecule-visualizer",
     "version": "1.0.0",
@@ -28,6 +28,11 @@
       },
       "package": "com.mk.moleculeVisualizer"
     },
+	"androidNavigationBar": {
+		"visible": true,
+		"barStyle": "light-content",
+		"backgroundColor": "#E6F5E0"
+	},
     "web": {
       "favicon": "./assets/favicon.png"
     },

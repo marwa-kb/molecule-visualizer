@@ -1,5 +1,9 @@
 # Molecule Visualizer
 #### _[in progress]_
+✅ Search and retrieve PDB files from [ RCSB ](https://www.rcsb.org/)
+✅ Parse PDB file to get coordinates of each atom
+✅ Modelize atoms in 3D and the bonds connecting them together
+🔲 Manage touch gestures to rotate the molecule and zoom in/out
 
 For this project, I am coding a React Native application that allows visualizing molecules in 3D (_inspired from a 42 project called Swifty Protein_).
 
