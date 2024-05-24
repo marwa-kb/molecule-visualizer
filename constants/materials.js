@@ -7,8 +7,9 @@ const lightingModel = "PBR";
 ViroAnimations.registerAnimations({
 	test: {
 		properties: {
-			rotateX: -5,
-			rotateY: -5,
+			rotateX: -10,
+			rotateY: -10,
+			// rotateZ: -50,
 		},
 		easing: "EaseInEaseOut",
 		duration: 2000,
