@@ -23,13 +23,13 @@ const MoleculeView = (props) => {
 	const [moleculeRotation, setMoleculeRotation] = useState([0, 0, 0]);
 	const rotateMolecule = (direction) => {
 		if (direction === "UP")
-			setMoleculeRotation(prev => [prev[0] - 2, prev[1], prev[2]]);
+			setMoleculeRotation(prev => [prev[0] - 15, prev[1], prev[2]]);
 		else if (direction === "DOWN")
-			setMoleculeRotation(prev => [prev[0] + 2, prev[1], prev[2]]);
+			setMoleculeRotation(prev => [prev[0] + 15, prev[1], prev[2]]);
 		else if (direction === "LEFT")
-			setMoleculeRotation(prev => [prev[0], prev[1] - 2, prev[2]]);
+			setMoleculeRotation(prev => [prev[0], prev[1] - 15, prev[2]]);
 		else if (direction === "RIGHT")
-		setMoleculeRotation(prev => [prev[0], prev[1] + 2, prev[2]]);
+			setMoleculeRotation(prev => [prev[0], prev[1] + 15, prev[2]]);
 	};
 
 	useEffect(() => {

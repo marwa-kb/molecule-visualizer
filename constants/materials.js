@@ -17,52 +17,16 @@ ViroAnimations.registerAnimations({
 });
 
 ViroMaterials.createMaterials({
-	sphereA: {
-		roughness: 0.0,
-		metalness: 1.0,
-		lightingModel: lightingModel,
-		diffuseColor: "#FFFFFF"
-	},
-	sphereB: {
-		roughness: 0.2,
-		metalness: 1.0,
-		lightingModel: lightingModel,
-		diffuseColor: "#FFFFFF"
-	},
-	sphereC: {
-		roughness: roughness,
-		metalness: metalness,
-		lightingModel: lightingModel,
-		diffuseColor: "#FFFFFF"
-	},
-	sphereD: {
-		roughness: 0.0,
-		metalness: 0.3,
-		lightingModel: lightingModel,
-		diffuseColor: "#FFFFFF"
-	},
-	sphereE: {
-		roughness: 0.2,
-		metalness: 0.3,
-		lightingModel: lightingModel,
-		diffuseColor: "#FFFFFF"
-	},
-	sphereF: {
-		roughness: roughness,
-		metalness: metalness,
-		lightingModel: lightingModel,
-		diffuseColor: "#FFFFFF"
-	},
 	bond: {
 		roughness: 1.0,
 		metalness: 1.0,
-		lightingModel: lightingModel,
-		diffuseColor: "#FFFFFF"
+		lightingModel: "Constant",
+		diffuseColor: "#777777"
 	},
 	H: {
-		roughness: 0.6,
+		roughness: 0.1,
 		metalness: 0.1,
-		lightingModel: lightingModel,
+		lightingModel: "Lambert",
 		diffuseColor: "#FFFFFF"
 	},
 	D: {

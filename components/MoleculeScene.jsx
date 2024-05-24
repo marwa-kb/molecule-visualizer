@@ -25,7 +25,7 @@ const MoleculeScene = (props) => {
 	
 	const atoms = molecule?.atoms.map((atom) => {
 		return (<ViroSphere
-					radius={.3}
+					radius={atom.element === "H" ? 0.2 : 0.3}
 					key={atom.id}
 					materials={atom.element}
 					position={atom.coordinates}
@@ -66,15 +66,18 @@ const MoleculeScene = (props) => {
 	};
 
 	const scaleMolecule = (pinchState, scaleFactor) => {
-		console.log("pinching")
-		if (scaleFactor === 2)
+		console.log("pinching: pinchState = ", pinchState, ", scaleFactor = ", scaleFactor)
+		console.log("before, molecule scale = ", moleculeScale)
+		if (pinchState === 2)
 		{
 			const newScale = [
 				moleculeScale[0] * scaleFactor,
 				moleculeScale[1] * scaleFactor,
 				moleculeScale[2] * scaleFactor
 			];
-			setMoleculeScale(newScale);
+			if (newScale[0] > 0.5 && newScale[0] < 5)
+				setMoleculeScale(newScale);
+			console.log("after, molecule scale = ", moleculeScale)
 		}
 	};
 
@@ -97,7 +100,7 @@ const MoleculeScene = (props) => {
 							rotation={moleculeRotation}
 							onDrag={() => setShowAtomDetails({ show: false, atom: null })}
 							onPinch={scaleMolecule}
-							onRotate={rotateMolecule}
+							// onRotate={rotateMolecule}
 						>
 							{ atoms }
 							{ bonds }
