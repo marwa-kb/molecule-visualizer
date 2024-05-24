@@ -11,7 +11,7 @@ import ligands from "../../constants/ligands";
 
 const Search = () => {
 	const { query } = useLocalSearchParams();
-	const result = ligands.filter((item) => item.includes(query));
+	const result = ligands.filter((item) => item.includes(query.toUpperCase()));
 
 	return (
 		<SafeAreaView className="h-full bg-primary p-6 justify-start">

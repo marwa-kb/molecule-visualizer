@@ -3,9 +3,8 @@ import { Text, View, FlatList, Alert, ActivityIndicator } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import SearchInput from "../components/SearchInput";
 import MoleculeInfoCard from "../components/MoleculeInfoCard";
-import EmptyState from "../components/EmptyState";
 import ligands from "../constants/ligands";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function App() {
 	const [length, setLength] = useState(20);
@@ -39,5 +38,6 @@ export default function App() {
 
 			<StatusBar backgroundColor="#E6F5E0" style="dark" />
 		</SafeAreaView>
+
 	);
 }

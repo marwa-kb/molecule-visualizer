@@ -76,19 +76,19 @@ ViroMaterials.createMaterials({
 		lightingModel: lightingModel,
 		diffuseColor: "#FFFFA0"
 	},
-	He: {
+	HE: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#D9FFFF"
 	},
-	Li: {
+	LI: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#CC80FF"
 	},
-	Be: {
+	BE: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
@@ -142,31 +142,31 @@ ViroMaterials.createMaterials({
 		lightingModel: lightingModel,
 		diffuseColor: "#90E050"
 	},
-	Ne: {
+	NE: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#B3E3F5"
 	},
-	Na: {
+	NA: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#AB5CF2"
 	},
-	Mg: {
+	MG: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#8AFF00"
 	},
-	Al: {
+	AL: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#BFA6A6"
 	},
-	Si: {
+	SI: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
@@ -184,13 +184,13 @@ ViroMaterials.createMaterials({
 		lightingModel: lightingModel,
 		diffuseColor: "#FFFF30"
 	},
-	Cl: {
+	CL: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#1FF01F"
 	},
-	Ar: {
+	AR: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
@@ -202,19 +202,19 @@ ViroMaterials.createMaterials({
 		lightingModel: lightingModel,
 		diffuseColor: "#8F40D4"
 	},
-	Ca: {
+	CA: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#3DFF00"
 	},
-	Sc: {
+	SC: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#E6E6E6"
 	},
-	Ti: {
+	TI: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
@@ -226,91 +226,91 @@ ViroMaterials.createMaterials({
 		lightingModel: lightingModel,
 		diffuseColor: "#A6A6AB"
 	},
-	Cr: {
+	CR: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#8A99C7"
 	},
-	Mn: {
+	MN: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#9C7AC7"
 	},
-	Fe: {
+	FE: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#E06633"
 	},
-	Co: {
+	CO: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#F090A0"
 	},
-	Ni: {
+	NI: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#50D050"
 	},
-	Cu: {
+	CU: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#C88033"
 	},
-	Zn: {
+	ZN: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#7D80B0"
 	},
-	Ga: {
+	GA: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#C28F8F"
 	},
-	Ge: {
+	GE: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#668F8F"
 	},
-	As: {
+	AS: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#BD80E3"
 	},
-	Se: {
+	SE: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#FFA100"
 	},
-	Br: {
+	BR: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#A62929"
 	},
-	Kr: {
+	KR: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#5CB8D1"
 	},
-	Rb: {
+	RB: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#702EB0"
 	},
-	Sr: {
+	SR: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
@@ -322,79 +322,79 @@ ViroMaterials.createMaterials({
 		lightingModel: lightingModel,
 		diffuseColor: "#94FFFF"
 	},
-	Zr: {
+	ZR: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#94E0E0"
 	},
-	Nb: {
+	NB: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#73C2C9"
 	},
-	Mo: {
+	MO: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#54B5B5"
 	},
-	Tc: {
+	TC: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#3B9E9E"
 	},
-	Ru: {
+	RU: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#248F8F"
 	},
-	Rh: {
+	RH: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#0A7D8C"
 	},
-	Pd: {
+	PD: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#006985"
 	},
-	Ag: {
+	AG: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#C0C0C0"
 	},
-	Cd: {
+	CD: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#FFD98F"
 	},
-	In: {
+	IN: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#A67573"
 	},
-	Sn: {
+	SN: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#668080"
 	},
-	Sb: {
+	SB: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#9E63B5"
 	},
-	Te: {
+	TE: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
@@ -406,121 +406,121 @@ ViroMaterials.createMaterials({
 		lightingModel: lightingModel,
 		diffuseColor: "#940094"
 	},
-	Xe: {
+	XE: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#429EB0"
 	},
-	Cs: {
+	CS: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#57178F"
 	},
-	Ba: {
+	BA: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#00C900"
 	},
-	La: {
+	LA: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#70D4FF"
 	},
-	Ce: {
+	CE: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#FFFFC7"
 	},
-	Pr: {
+	PR: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#D9FFC7"
 	},
-	Nd: {
+	ND: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#C7FFC7"
 	},
-	Pm: {
+	PM: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#A3FFC7"
 	},
-	Sm: {
+	SM: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#8FFFC7"
 	},
-	Eu: {
+	EU: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#61FFC7"
 	},
-	Gd: {
+	GD: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#45FFC7"
 	},
-	Tb: {
+	TB: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#30FFC7"
 	},
-	Dy: {
+	DY: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#1FFFC7"
 	},
-	Ho: {
+	HO: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#00FF9C"
 	},
-	Er: {
+	ER: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#00E675"
 	},
-	Tm: {
+	TM: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#00D452"
 	},
-	Yb: {
+	YB: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#00BF38"
 	},
-	Lu: {
+	LU: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#00AB24"
 	},
-	Hf: {
+	HF: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#4DC2FF"
 	},
-	Ta: {
+	TA: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
@@ -532,103 +532,103 @@ ViroMaterials.createMaterials({
 		lightingModel: lightingModel,
 		diffuseColor: "#2194D6"
 	},
-	Re: {
+	RE: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#267DAB"
 	},
-	Os: {
+	OS: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#266696"
 	},
-	Ir: {
+	IR: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#175487"
 	},
-	Pt: {
+	PT: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#D0D0E0"
 	},
-	Au: {
+	AU: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#FFD123"
 	},
-	Hg: {
+	HG: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#B8B8D0"
 	},
-	Tl: {
+	TL: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#A6544D"
 	},
-	Pb: {
+	PB: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#575961"
 	},
-	Bi: {
+	BI: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#9E4FB5"
 	},
-	Po: {
+	PO: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#AB5C00"
 	},
-	At: {
+	AT: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#754F45"
 	},
-	Rn: {
+	RN: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#428296"
 	},
-	Fr: {
+	FR: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#420066"
 	},
-	Ra: {
+	RA: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#007D00"
 	},
-	Ac: {
+	AC: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#70ABFA"
 	},
-	Th: {
+	TH: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#00BAFF"
 	},
-	Pa: {
+	PA: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
@@ -640,103 +640,103 @@ ViroMaterials.createMaterials({
 		lightingModel: lightingModel,
 		diffuseColor: "#008FFF"
 	},
-	Np: {
+	NP: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#0080FF"
 	},
-	Pu: {
+	PU: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#006BFF"
 	},
-	Am: {
+	AM: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#545CF2"
 	},
-	Cm: {
+	CM: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#785CE3"
 	},
-	Bk: {
+	BK: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#8A4FE3"
 	},
-	Cf: {
+	CF: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#A136D4"
 	},
-	Es: {
+	ES: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#B31FD4"
 	},
-	Fm: {
+	FM: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#B31FBA"
 	},
-	Md: {
+	MD: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#B30DA6"
 	},
-	No: {
+	NO: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#BD0D87"
 	},
-	Lr: {
+	LR: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#C70066"
 	},
-	Rf: {
+	RF: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#CC0059"
 	},
-	Db: {
+	DB: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#D1004F"
 	},
-	Sg: {
+	SG: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#D90045"
 	},
-	Bh: {
+	BH: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#E00038"
 	},
-	Hs: {
+	HS: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#E6002E"
 	},
-	Mt: {
+	MT: {
 		roughness: roughness,
 		metalness: metalness,
 		lightingModel: lightingModel,

@@ -5,8 +5,6 @@ class Atom {
 		this.snb = Number(data[1]);
 		this.id = data[2];
 		this.coordinates = [Number(data[6]), Number(data[7]), Number(data[8])];
-		// console.log("atom, " , data);
-		// console.log("atom, " , this.snb, " " , this.id, " ", this.element, " ", this.coordinates);
 	}
 }
 
@@ -15,23 +13,21 @@ class Conect {
 		const data = line.split(/\s+/);
 		this.snb = Number(data[1]);
 		this.bonds = [...data.slice(2).map((nb) => Number(nb))];
-		// console.log("conects, " , this.snb, " ", this.bonds);
 	}
-
-	// setBond(bond)
-	// {
-	// 	this.bond = bond;
-	// }
 }
 
 export default class Molecule {
 	constructor(fileContent) {
-		// console.log("here in class", this.fileContent)
 		this.fileContent = fileContent;
 		this.lines = fileContent.split('\n');
+
 		this.atoms = this.setAtoms();
 		this.conects = this.setConects();
-		// console.log("lines:", this.lines)
+
+		// const data = this.getExtremums();
+		// console.log("data = ", data)
+		// this.extremums = data.extremums;
+		// this.focalPoint = data.focalPoint;
 	}
 
 	setAtoms() {
@@ -51,25 +47,10 @@ export default class Molecule {
 			if (line.startsWith("CONECT"))
 				conects.push(new Conect(line));
 		}
-		// for (let conect of conects)
-		// {
-		// 	if (conect.bond.length > 2)
-		// 	{
-		// 		let newArr = [];
-		// 		let i = conect.bond.length;
-		// 		while (i > 2)
-		// 		{
-		// 			const newBond
-		// 			const newConect = new Conect(snb, conect.bond);
-
-		// 		}
-		// 	}
-		// }
 		return (conects);
 	}
 
 	getAtomCoords(main, others) {
-		// console.log("atoms = ", atoms , " main = ", main, ", others = ", others)
 		let mainAtom;
 		let otherAtoms = [];
 		for (let atom of this.atoms)
@@ -96,9 +77,41 @@ export default class Molecule {
 			for (let other of coords.otherAtoms)
 			{
 				const data = [coords.mainAtom, other];
-				bonds.push(data);
+				if (data[0] && data[1])
+					bonds.push(data);
 			}
 		}
 		return (bonds);
+	}
+
+	getExtremums() {
+		let xmin = this.atoms[0]?.coordinates[0] ?? 0;
+		let xmax = xmin;
+		let ymin = this.atoms[0]?.coordinates[1] ?? 0;
+		let ymax = ymin;
+		let zmin = this.atoms[0]?.coordinates[2] ?? 0;
+		let zmax = zmin;
+
+		for (let atom of this.atoms)
+		{
+			if (atom.coordinates[0] > xmax)
+				xmax = atom.coordinates[0];
+			if (atom.coordinates[0] < xmin)
+				xmin = atom.coordinates[0];
+
+			if (atom.coordinates[1] > ymax)
+				ymax = atom.coordinates[1];
+			if (atom.coordinates[1] < ymin)
+				ymin = atom.coordinates[1];
+
+			if (atom.coordinates[2] > zmax)
+				zmax = atom.coordinates[2];
+			if (atom.coordinates[2] < zmin)
+				zmin = atom.coordinates[2];
+		}
+		return ({
+			extremums: [xmin, xmax, ymin, ymax, zmin, zmax],
+			focalPoint: [(xmin + xmax) / 2, (ymin + ymax) / 2, (zmin + zmax) / 2]
+		});
 	}
 }
