@@ -1,15 +1,17 @@
 import { useEffect, useState } from "react";
-import { ViroSkyBox, ViroNode, ViroOmniLight, ViroOrbitCamera, ViroSphere, ViroPolyline, ViroSpinner, ViroARScene } from "@viro-community/react-viro";
+import { ViroSkyBox, ViroNode, ViroOmniLight, ViroOrbitCamera, ViroSphere, ViroPolyline, ViroSpinner, ViroARScene, ViroText, ViroFlexView, ViroButton } from "@viro-community/react-viro";
 import "../constants/materials";
 
 const MoleculeScene = (props) => {
 	const molecule = props.sceneNavigator.viroAppProps.molecule;
+	const moleculeRotation = props.sceneNavigator.viroAppProps.moleculeRotation ?? [0, 0, 0];
+	const setShowAtomDetails = props.sceneNavigator.viroAppProps.setShowAtomDetails;
 	const [isLoading, setIsLoading] = useState(true);
 	const [camPos, setCamPos] = useState([0, 0, 0]);
 	const [focalPoint, setFocalPoint] = useState([0, 0, 0]);
 	const [moleculeScale, setMoleculeScale] = useState([1, 1, 1]);
-	const [moleculeRotation, setMoleculeRotation] = useState([0, 0, 0]);
-	const [rotating, setRotating] = useState(false);
+	const [isRotating, setIsRotating] = useState(false);
+
 
 	useEffect(() => {
 		if (molecule)
@@ -29,11 +31,7 @@ const MoleculeScene = (props) => {
 					position={atom.coordinates}
 					onClick={(e) => {
 						console.log("ATOM: ", e)
-						const x = e[0];
-						const y = e[1];
-						const z = e[2];
-						// onTouchStart(e)
-						// setCamPos([x, y, z]);
+						setShowAtomDetails({ show: true, atom: atom.element });
 					}}
 				/>);
 	});
@@ -51,23 +49,25 @@ const MoleculeScene = (props) => {
 	});
 
 	const rotateMolecule = (rotateState, rotationFactor) => {
+		console.log("rotating")
 		if (rotateState === 1)
-			setRotating(true);
-		else if (rotateState === 2)
+			setIsRotating(true);
+		if (rotateState === 2)
 		{
 			const newRotation = [
 				moleculeRotation[0] - rotationFactor / 20,
 				moleculeRotation[1] - rotationFactor / 20,
 				moleculeRotation[2] - rotationFactor / 20
 			];
-			setMoleculeRotation(newRotation);
+			// setMoleculeRotation(newRotation);
 		}
-		else if (rotateState === 3)
-			setRotating(false);
+		if (rotateState === 3)
+			setIsRotating(false);
 	};
 
 	const scaleMolecule = (pinchState, scaleFactor) => {
-		if (!rotating && pinchState === 3)
+		console.log("pinching")
+		if (scaleFactor === 2)
 		{
 			const newScale = [
 				moleculeScale[0] * scaleFactor,
@@ -79,7 +79,9 @@ const MoleculeScene = (props) => {
 	};
 
 	return (
-		<ViroARScene>
+		<ViroARScene
+			onClick={() => setShowAtomDetails({ show: false, atom: null })}
+		>
 			<ViroSkyBox color={"#FFFFFF"} />
 			{
 				!isLoading && molecule &&
@@ -93,7 +95,7 @@ const MoleculeScene = (props) => {
 						<ViroNode
 							scale={moleculeScale}
 							rotation={moleculeRotation}
-							onDrag={() => {}}
+							onDrag={() => setShowAtomDetails({ show: false, atom: null })}
 							onPinch={scaleMolecule}
 							onRotate={rotateMolecule}
 						>
