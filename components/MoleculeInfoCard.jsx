@@ -26,9 +26,9 @@ const FormattedFormula = (props) => {
 const MoleculeInfoCard = (props) => {
 	return (
 		<TouchableOpacity
-			className="mb-5 rounded-[4px] bg-white py-4 px-5 z-10"
+			className="mb-5 rounded-[20px] bg-white py-4 px-5 z-10"
 			style={style.boxShadow}
-			activeOpacity={props.touchable ? 0.6 : 1}
+			activeOpacity={props.touchable ? 0.8 : 1}
 			onPress={() => props.touchable && router.push(`/molecule/${props.id}`)}
 		>
 			<View className="flex-row justify-between mb-3 items-start">

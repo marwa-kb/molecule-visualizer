@@ -6,9 +6,9 @@ import rotate from "../assets/icons/rotate.png";
 
 
 export default {
-  search,
-  chevron,
-  collapse,
-  expand,
-  rotate
+	search,
+	chevron,
+	collapse,
+	expand,
+	rotate
 };

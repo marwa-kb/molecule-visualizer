@@ -4,12 +4,12 @@ import "../constants/materials";
 
 const MoleculeScene = (props) => {
 	const molecule = props.sceneNavigator.viroAppProps.molecule;
-	const moleculeRotation = props.sceneNavigator.viroAppProps.moleculeRotation ?? [0, 0, 0];
 	const setShowAtomDetails = props.sceneNavigator.viroAppProps.setShowAtomDetails;
 	const [isLoading, setIsLoading] = useState(true);
 	const [camPos, setCamPos] = useState([0, 0, 0]);
 	const [focalPoint, setFocalPoint] = useState([0, 0, 0]);
 	const [moleculeScale, setMoleculeScale] = useState([1, 1, 1]);
+	const [moleculeRotation, setMoleculeRotation] = useState([0, 0, 0]);
 	const [isRotating, setIsRotating] = useState(false);
 
 
@@ -25,7 +25,7 @@ const MoleculeScene = (props) => {
 	
 	const atoms = molecule?.atoms.map((atom) => {
 		return (<ViroSphere
-					radius={atom.element === "H" ? 0.2 : 0.3}
+					radius={0.3}
 					key={atom.id}
 					materials={atom.element}
 					position={atom.coordinates}
@@ -48,22 +48,22 @@ const MoleculeScene = (props) => {
 				/>);
 	});
 
-	const rotateMolecule = (rotateState, rotationFactor) => {
-		console.log("rotating")
-		if (rotateState === 1)
-			setIsRotating(true);
-		if (rotateState === 2)
-		{
-			const newRotation = [
-				moleculeRotation[0] - rotationFactor / 20,
-				moleculeRotation[1] - rotationFactor / 20,
-				moleculeRotation[2] - rotationFactor / 20
-			];
-			// setMoleculeRotation(newRotation);
-		}
-		if (rotateState === 3)
-			setIsRotating(false);
-	};
+	// const rotateMolecule = (rotateState, rotationFactor) => {
+	// 	console.log("rotating")
+	// 	if (rotateState === 1)
+	// 		setIsRotating(true);
+	// 	if (rotateState === 2)
+	// 	{
+	// 		const newRotation = [
+	// 			moleculeRotation[0] - rotationFactor / 20,
+	// 			moleculeRotation[1] - rotationFactor / 20,
+	// 			moleculeRotation[2] - rotationFactor / 20
+	// 		];
+	// 		setMoleculeRotation(newRotation);
+	// 	}
+	// 	if (rotateState === 3)
+	// 		setIsRotating(false);
+	// };
 
 	const scaleMolecule = (pinchState, scaleFactor) => {
 		console.log("pinching: pinchState = ", pinchState, ", scaleFactor = ", scaleFactor)

@@ -6,9 +6,12 @@ import Molecule from "../classes/Molecule";
 import icons from "../constants/icons";
 import style from "../constants/style";
 import RotatingButton from "./RotatingButton";
+import { setStatusBarBackgroundColor } from "expo-status-bar";
+import * as NavigationBar from "expo-navigation-bar";
 
-const screen1 = "w-[100%] h-[70%]";
-const screen2 = "absolute w-[98vw] h-[98vh] z-40 bottom-0 m-1";
+
+const screen1 = "w-[100%] h-[70%] rounded-[20px]";
+const screen2 = "absolute w-[100vw] h-[100vh] z-40 bottom-0 rounded-0";
 
 const MoleculeView = (props) => {
 	const [fileData, setFileData] = useState("");
@@ -19,18 +22,6 @@ const MoleculeView = (props) => {
 		show: false,
 		atom: null
 	});
-
-	const [moleculeRotation, setMoleculeRotation] = useState([0, 0, 0]);
-	const rotateMolecule = (direction) => {
-		if (direction === "UP")
-			setMoleculeRotation(prev => [prev[0] - 15, prev[1], prev[2]]);
-		else if (direction === "DOWN")
-			setMoleculeRotation(prev => [prev[0] + 15, prev[1], prev[2]]);
-		else if (direction === "LEFT")
-			setMoleculeRotation(prev => [prev[0], prev[1] - 15, prev[2]]);
-		else if (direction === "RIGHT")
-			setMoleculeRotation(prev => [prev[0], prev[1] + 15, prev[2]]);
-	};
 
 	useEffect(() => {
 		const getFile = async () => {
@@ -45,30 +36,43 @@ const MoleculeView = (props) => {
 			}
 		}
 		getFile();
+
+		return (() => NavigationBar.setBackgroundColorAsync("#E6F5E0"));
 	}, []);
 
 	useEffect(() => {
 		setMolecule(new Molecule(fileData));
 	}, [fileData]);
-	// console.log(molecule)
+
+	const handleScreenChange = () => {
+		const currentScreen = screen;
+		if (currentScreen === screen1)
+		{
+			setScreen(screen2);
+			setStatusBarBackgroundColor("#FFFFFF", true);
+			setTimeout(() => NavigationBar.setBackgroundColorAsync("#FFFFFF"), 100);
+		}
+		else
+		{
+			setScreen(screen1);
+			setStatusBarBackgroundColor("#E6F5E0", true);
+			setTimeout(() => NavigationBar.setBackgroundColorAsync("#E6F5E0"), 100);
+		}
+	}
 
 	return (
 		<View
-			className={`${screen} bg-white flex flex-column py-4 px-4 rounded-[4px]`}
+			className={`${screen} bg-white flex flex-column pt-4 pb-2 px-1`}
 			style={style.boxShadow}
 		>
-			<RotatingButton direction="UP" iconStyle="rotate-90" rotateMolecule={rotateMolecule} />
-			<RotatingButton direction="DOWN" iconStyle="-rotate-90 -scale-y-[1]" rotateMolecule={rotateMolecule} />
-			<RotatingButton direction="LEFT" iconStyle="-scale-y-[1]" rotateMolecule={rotateMolecule} />
-			<RotatingButton direction="RIGHT" iconStyle="rotate-180" rotateMolecule={rotateMolecule} />
-			<View className="flex flex-row justify-between">
+			<View className="flex flex-row justify-between ml-4">
 				{
 					showAtomDetails.show &&
 					<Text>Selected atom: {showAtomDetails.atom}</Text>
 				}
 				<TouchableOpacity
-					className=" flex items-end w-8 h-8 ml-auto"
-					onPress={() => setScreen(prev => prev === screen1 ? screen2 : screen1)}
+					className=" flex items-end w-8 h-8 ml-auto mr-4"
+					onPress={handleScreenChange}
 				>
 					<Image
 						source={screen === screen1 ? icons.expand : icons.collapse}
@@ -81,8 +85,7 @@ const MoleculeView = (props) => {
 				viroAppProps={{
 					molecule: molecule,
 					showAtomDetails: showAtomDetails,
-					setShowAtomDetails: setShowAtomDetails,
-					moleculeRotation: moleculeRotation
+					setShowAtomDetails: setShowAtomDetails
 				}}
 			/>
 		</View>
