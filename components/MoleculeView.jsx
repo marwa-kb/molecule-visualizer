@@ -5,10 +5,8 @@ import MoleculeScene from "./MoleculeScene";
 import Molecule from "../classes/Molecule";
 import icons from "../constants/icons";
 import style from "../constants/style";
-import RotatingButton from "./RotatingButton";
 import { setStatusBarBackgroundColor } from "expo-status-bar";
 import * as NavigationBar from "expo-navigation-bar";
-
 
 const screen1 = "w-[100%] h-[70%] rounded-[20px]";
 const screen2 = "absolute w-[100vw] h-[100vh] z-40 bottom-0 rounded-0";

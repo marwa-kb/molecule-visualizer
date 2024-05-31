@@ -9,9 +9,6 @@ const MoleculeScene = (props) => {
 	const [camPos, setCamPos] = useState([0, 0, 0]);
 	const [focalPoint, setFocalPoint] = useState([0, 0, 0]);
 	const [moleculeScale, setMoleculeScale] = useState([1, 1, 1]);
-	const [moleculeRotation, setMoleculeRotation] = useState([0, 0, 0]);
-	const [isRotating, setIsRotating] = useState(false);
-
 
 	useEffect(() => {
 		if (molecule)
@@ -48,36 +45,17 @@ const MoleculeScene = (props) => {
 				/>);
 	});
 
-	// const rotateMolecule = (rotateState, rotationFactor) => {
-	// 	console.log("rotating")
-	// 	if (rotateState === 1)
-	// 		setIsRotating(true);
-	// 	if (rotateState === 2)
-	// 	{
-	// 		const newRotation = [
-	// 			moleculeRotation[0] - rotationFactor / 20,
-	// 			moleculeRotation[1] - rotationFactor / 20,
-	// 			moleculeRotation[2] - rotationFactor / 20
-	// 		];
-	// 		setMoleculeRotation(newRotation);
-	// 	}
-	// 	if (rotateState === 3)
-	// 		setIsRotating(false);
-	// };
-
 	const scaleMolecule = (pinchState, scaleFactor) => {
 		console.log("pinching: pinchState = ", pinchState, ", scaleFactor = ", scaleFactor)
-		console.log("before, molecule scale = ", moleculeScale)
 		if (pinchState === 2)
 		{
 			const newScale = [
-				moleculeScale[0] * scaleFactor,
-				moleculeScale[1] * scaleFactor,
-				moleculeScale[2] * scaleFactor
+				moleculeScale[0] * scaleFactor / 10,
+				moleculeScale[1] * scaleFactor / 10,
+				moleculeScale[2] * scaleFactor / 10
 			];
 			if (newScale[0] > 0.5 && newScale[0] < 5)
 				setMoleculeScale(newScale);
-			console.log("after, molecule scale = ", moleculeScale)
 		}
 	};
 
@@ -97,10 +75,8 @@ const MoleculeScene = (props) => {
 						<Lights />
 						<ViroNode
 							scale={moleculeScale}
-							rotation={moleculeRotation}
 							onDrag={() => setShowAtomDetails({ show: false, atom: null })}
 							onPinch={scaleMolecule}
-							// onRotate={rotateMolecule}
 						>
 							{ atoms }
 							{ bonds }
