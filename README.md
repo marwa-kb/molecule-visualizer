@@ -25,6 +25,5 @@ After loading these into our app, the user can select or search one of them, and
 For this, I had to learn how to use the ViroReact library that allows 3D modelization. Each atom is represented by a "ViroSphere" component, and the bonds are "ViroPolyline" components. These are loaded into a "ViroARScene".
 > <img src="https://github.com/marwa-kb/molecule-visualizer/assets/68017133/8ca8aefd-d2cf-48a2-9215-ded77631257b" width="220"/>  
 > <img src="https://github.com/marwa-kb/molecule-visualizer/assets/68017133/d5241a50-b818-499a-8a0a-0c65858c7151" width="220"/>  
-> <img src="https://github.com/marwa-kb/molecule-visualizer/assets/68017133/fab3986f-35c3-4d47-b6ec-f0cab8107481" width="220"/>  
-> <img src="https://github.com/marwa-kb/molecule-visualizer/assets/68017133/2dbea962-900e-44fa-ad64-2b1b38294dcc" width="220"/>
-> <img src="https://github.com/marwa-kb/molecule-visualizer/assets/68017133/0a105c8e-203f-4074-b6e9-098934488ddd" width="220"/>
+> <img src="https://github.com/marwa-kb/molecule-visualizer/assets/68017133/569a6100-ac3f-49e0-bba0-88dfa5a71159" width="220"/>
+> <img src="https://github.com/marwa-kb/molecule-visualizer/assets/68017133/0a105c8e-203f-4074-b6e9-098934488ddd" width="220"/>  
