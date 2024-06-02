@@ -50,9 +50,9 @@ const MoleculeScene = (props) => {
 		if (pinchState === 2)
 		{
 			const newScale = [
-				moleculeScale[0] * scaleFactor / 10,
-				moleculeScale[1] * scaleFactor / 10,
-				moleculeScale[2] * scaleFactor / 10
+				moleculeScale[0] * scaleFactor,
+				moleculeScale[1] * scaleFactor,
+				moleculeScale[2] * scaleFactor
 			];
 			if (newScale[0] > 0.5 && newScale[0] < 5)
 				setMoleculeScale(newScale);
