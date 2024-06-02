@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { Text, View, FlatList, Alert, ActivityIndicator } from "react-native";
+import { Text, View, FlatList, ActivityIndicator } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import SearchInput from "../components/SearchInput";
 import MoleculeInfoCard from "../components/MoleculeInfoCard";
@@ -8,11 +8,7 @@ import { useEffect, useState } from "react";
 
 export default function App() {
 	const [length, setLength] = useState(20);
-	const [data, setData] = useState(ligands.slice(0, length));
-
-	useEffect(() => {
-		setData(ligands.slice(0, length));
-	}, [length]);
+	const data = ligands.slice(0, length);
 
 	return (
 		<SafeAreaView className="h-full bg-primary p-6 justify-start">
