@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, ActivityIndicator, StyleSheet } from "react-native";
+import { View, Text, TouchableOpacity, ActivityIndicator } from "react-native";
 import { router } from "expo-router";
 import { memo } from "react";
 import style from "../constants/style";
@@ -26,7 +26,8 @@ const FormattedFormula = (props) => {
 const MoleculeInfoCard = (props) => {
 	return (
 		<TouchableOpacity
-			className="mb-5 rounded-[20px] bg-white py-4 px-5 z-10"
+			className={`${props.isLoading ? "h-[120px] text-primary" : "text-black"}
+						mb-5 py-4 px-5 z-[0] rounded-[20px] bg-white`}
 			style={style.boxShadow}
 			activeOpacity={props.touchable ? 0.8 : 1}
 			onPress={() => props.touchable && router.push(`/molecule/${props.id}`)}
@@ -34,15 +35,14 @@ const MoleculeInfoCard = (props) => {
 			<View className="flex-row justify-between mb-3 items-start">
 				<Text className="font-psemibold text-xl">{props.id}</Text>
 				{
-					!props.isLoading && props.item &&
+					props.item &&
 						<FormattedFormula formula={props.item?.chem_comp?.formula} />
 				}
 			</View>
 			{
-				props.isLoading ?
-					<ActivityIndicator color="#000000" size="large" className="mb-4" />
-				: props.item &&
-					<Text className="font-plight text-xs mb-3">
+				props.item &&
+					<Text className={`${props.isLoading ? "text-transparent" : "text-black"}
+							font-plight text-xs mb-3`}>
 						{props.item?.chem_comp?.name?.toLowerCase()}
 					</Text>
 			}

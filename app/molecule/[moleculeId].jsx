@@ -1,5 +1,5 @@
 import { useLocalSearchParams } from "expo-router";
-import { Alert, Text, View } from "react-native";
+import { Alert, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useState, useEffect } from "react";
 import { getMolecule } from "../../lib/apis";
@@ -9,6 +9,7 @@ import GoBack from "../../components/GoBack";
 import { StatusBar } from "expo-status-bar";
 import style from "../../constants/style";
 import Molecule from "../../classes/Molecule";
+import { Skeleton } from "moti/skeleton";
 
 const MoleculeCard = () => {
 	console.log("in molecule card")
@@ -46,35 +47,44 @@ const MoleculeCard = () => {
 			setTimeout(() => setIsLoading(false), 1000);
 	}, [moleculeInfo, moleculeStructure]);
 
+	const skeletonProps = {
+		radius: 20,
+		colorMode: "light",
+		backgroundColor: "#e4e4e7",
+		transition: {
+			type: "timing",
+			duration: 2000
+		}
+	};
+
 	return (
 		<SafeAreaView className="h-full bg-primary p-6 justify-start relative">
 			<GoBack containerStyles="bg-white" />
-			<View
-				className="h-[50vh] w-[3px] bg-white self-center absolute mt-[200px] z-0"
-				style={style.boxShadow}
-			/>
-			{
-				isLoading ?
-				(
-					<View className="animate-bounce">
+
+			<Skeleton.Group show={isLoading}>
+				<Skeleton
+					height={isLoading? 120 : 0}
+					width={"100%"}
+					{ ...skeletonProps }
+				>
+					<MoleculeInfoCard id={moleculeId} item={moleculeInfo} isLoading={isLoading} />
+				</Skeleton>
+
+				{
+					!isLoading &&
 						<View
-							className="mb-5 rounded-[20px] py-4 px-5 z-10 h-[120px] bg-gray-200 dark:bg-gray-700 animate-bounce"
+							className="h-[50vh] w-[3px] bg-white self-center absolute mt-[200px] -z-[1]"
 							style={style.boxShadow}
 						/>
-						<View
-							className="w-[100%] h-[70%] rounded-[20px] bg-white flex flex-column pt-4 pb-2 px-1"
-							style={style.boxShadow}
-						/>
-					</View>
-				)
-				:
-				(
-					<>
-						<MoleculeInfoCard id={moleculeId} item={moleculeInfo} isLoading={isLoading} />
-						<MoleculeView moleculeStructure={moleculeStructure} />
-					</>
-				)
-			}
+				}
+				<Skeleton
+					height={isLoading? 550 : 0}
+					{ ...skeletonProps }
+				>
+					<MoleculeView moleculeStructure={moleculeStructure} />
+				</Skeleton>
+			</Skeleton.Group>
+
 			<StatusBar backgroundColor="#E6F5E0" style="dark" />
 		</SafeAreaView>
 	);
