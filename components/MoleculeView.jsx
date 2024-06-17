@@ -13,7 +13,7 @@ const screen2 = "absolute w-[100vw] h-[100vh] z-40 bottom-0 rounded-0";
 
 const MoleculeView = (props) => {
 	console.log("in molecule view")
-	const [molecule, setMolecule] = useState(null);
+	const molecule = props.moleculeStructure;
 	const [screen, setScreen] = useState(screen1);
 	const [showAtomDetails, setShowAtomDetails] = useState({
 		show: false,
@@ -21,19 +21,6 @@ const MoleculeView = (props) => {
 	});
 
 	useEffect(() => {
-		const getFile = async () => {
-			try {
-				const file = await fetch(`https://files.rcsb.org/ligands/
-											${props.moleculeId[0]}/${props.moleculeId}/
-											${props.moleculeId}_ideal.pdb`);
-				const res = await file.text();
-				setMolecule(new Molecule(res));
-			} catch (error) {
-				Alert.alert("Error", error.message);
-			}
-		}
-		getFile();
-
 		return (() => NavigationBar.setBackgroundColorAsync("#E6F5E0"));
 	}, []);
 
