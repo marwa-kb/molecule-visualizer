@@ -1,4 +1,4 @@
-import { SplashScreen, Stack } from 'expo-router';
+import { SplashScreen, Stack } from "expo-router";
 import { useFonts } from "expo-font";
 import { useEffect } from "react";
 
@@ -29,9 +29,18 @@ const RootLayout = () => {
 
 	return (
 		<Stack>
-			<Stack.Screen name="index" options={{ headerShown: false }} />
-			<Stack.Screen name="molecule/[moleculeId]" options={{ headerShown: false }} />
-			<Stack.Screen name="search/[query]" options={{ headerShown: false }} />
+			<Stack.Screen
+				name="index"
+				options={{ headerShown: false, animation: "slide_from_left" }}
+			/>
+			<Stack.Screen
+				name="molecule/[moleculeId]"
+				options={{ headerShown: false, animation: "slide_from_right" }}
+			/>
+			<Stack.Screen
+				name="search/[query]"
+				options={{ headerShown: false, animation: "slide_from_right" }}
+			/>
 		</Stack>
 	);
 };
