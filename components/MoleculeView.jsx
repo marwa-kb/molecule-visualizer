@@ -1,30 +1,39 @@
-import { useEffect, useState } from "react";
-import { View, Alert, TouchableOpacity, Image, Text } from "react-native";
+import { useEffect, useRef, useState } from "react";
+import { View, TouchableOpacity, Image, Text } from "react-native";
 import { ViroARSceneNavigator } from "@viro-community/react-viro";
 import MoleculeScene from "./MoleculeScene";
-import Molecule from "../classes/Molecule";
 import icons from "../constants/icons";
 import style from "../constants/style";
 import { setStatusBarBackgroundColor } from "expo-status-bar";
 import * as NavigationBar from "expo-navigation-bar";
-
-const viewSize1 = "w-[100%] min-h-[550px] h-[70%] rounded-[20px]";
-const viewSize2 = "absolute w-[100vw] h-[100vh] z-40 bottom-0 rounded-0";
+import Constants from "expo-constants";
 
 const MoleculeView = (props) => {
-	console.log("in molecule view")
+	console.log("in molecule view");
 	const molecule = props.moleculeStructure;
-	const [viewSize, setViewSize] = useState(viewSize1);
+	const viewRef = useRef(null);
+
 	const [showAtomDetails, setShowAtomDetails] = useState({
 		show: false,
-		atom: null
+		atom: null,
 	});
+	const [position, setPosition] = useState({
+		x: 0,
+		y: 0,
+	});
+
+	const viewSize1 = "w-[100%] min-h-[550px] h-[70%] rounded-[20px]";
+	const viewSize2 = "absolute w-[100vw] h-[101vh] rounded-0 z-40 m-auto";
+	const [viewSize, setViewSize] = useState(viewSize1);
 
 	useEffect(() => {
 		return (() => NavigationBar.setBackgroundColorAsync("#E6F5E0"));
 	}, []);
 
 	const handleViewSizeChange = () => {
+		viewRef.current.measure((x, y, width, height, pageX, pageY) => {
+			setPosition({ x: parseInt(pageX), y: parseInt(pageY) });
+		});
 		const currentSize = viewSize;
 		if (currentSize === viewSize1)
 		{
@@ -38,18 +47,23 @@ const MoleculeView = (props) => {
 			setStatusBarBackgroundColor("#E6F5E0", true);
 			setTimeout(() => NavigationBar.setBackgroundColorAsync("#E6F5E0"), 100);
 		}
-	}
+	};
 
 	return (
 		<View
 			className={`${viewSize} bg-white flex flex-column pt-4 pb-2 px-1`}
-			style={style.boxShadow}
+			style={{
+				...style.boxShadow,
+				top: viewSize === viewSize1 ? 0 : -position.y + Constants.statusBarHeight,
+				bottom: viewSize === viewSize1 ? 0 : -position.y + Constants.statusBarHeight,
+				left: viewSize === viewSize1 ? 0 : -position.x,
+			}}
+			ref={viewRef}
 		>
 			<View className="flex flex-row justify-between ml-4">
-				{
-					showAtomDetails.show &&
+				{showAtomDetails.show && (
 					<Text>Selected atom: {showAtomDetails.atom}</Text>
-				}
+				)}
 				<TouchableOpacity
 					className=" flex items-end w-8 h-8 ml-auto mr-4"
 					onPress={handleViewSizeChange}
@@ -65,7 +79,7 @@ const MoleculeView = (props) => {
 				viroAppProps={{
 					molecule: molecule,
 					showAtomDetails: showAtomDetails,
-					setShowAtomDetails: setShowAtomDetails
+					setShowAtomDetails: setShowAtomDetails,
 				}}
 			/>
 		</View>

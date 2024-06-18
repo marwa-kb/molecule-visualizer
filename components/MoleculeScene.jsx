@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ViroSkyBox, ViroNode, ViroOmniLight, ViroOrbitCamera, ViroSphere, ViroPolyline, ViroSpinner, ViroARScene, ViroText, ViroFlexView, ViroButton } from "@viro-community/react-viro";
+import { ViroSkyBox, ViroNode, ViroOmniLight, ViroOrbitCamera, ViroSphere, ViroPolyline, ViroARScene } from "@viro-community/react-viro";
 import "../constants/materials";
 
 const MoleculeScene = (props) => {
@@ -14,7 +14,7 @@ const MoleculeScene = (props) => {
 		if (molecule)
 		{
 			const data = molecule.getExtremums();
-			setCamPos([0, 0, data.extremums[5] + data.extremums[1] * 3]);
+			setCamPos([0, 0, data.extremums[5] + data.extremums[1] * 3 + 1]);
 			setFocalPoint(data.focalPoint);
 			setTimeout(() => setIsLoading(false), 1000);
 		}

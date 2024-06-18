@@ -12,7 +12,7 @@ import Molecule from "../../classes/Molecule";
 import { Skeleton } from "moti/skeleton";
 
 const MoleculeCard = () => {
-	console.log("in molecule card")
+	console.log("in molecule card");
 
 	const { moleculeId } = useLocalSearchParams();
 	const [moleculeInfo, setMoleculeInfo] = useState(null);
@@ -24,27 +24,33 @@ const MoleculeCard = () => {
 			try {
 				const fetchedData = await getMolecule(moleculeId);
 				setMoleculeInfo(fetchedData);
-			} catch(error) {
-				Alert.alert("Error", error.message)
-			};
+			} catch (error) {
+				Alert.alert("Error", error.message);
+			}
 
 			try {
-				const file = await fetch(`https://files.rcsb.org/ligands/
+				let file = await fetch(`https://files.rcsb.org/ligands/
 								${moleculeId[0]}/${moleculeId}/
 								${moleculeId}_ideal.pdb`);
-				const res = await file.text();
+				let res = await file.text();
+				if (res.length === 0) {
+					let file = await fetch(`https://files.rcsb.org/ligands/
+						${moleculeId[0]}/${moleculeId}/
+						${moleculeId}_model.pdb`);
+					res = await file.text();
+				}
 				setMoleculeStructure(new Molecule(res));
-			} catch(error) {
-				Alert.alert("Error", error.message)
+			} catch (error) {
+				Alert.alert("Error", error.message);
 			}
-		}
+		};
 
 		fetchMoleculeData();
 	}, []);
 
 	useEffect(() => {
 		if (moleculeInfo && moleculeStructure)
-			setTimeout(() => setIsLoading(false), 1000);
+			setTimeout(() => setIsLoading(false), 1500);
 	}, [moleculeInfo, moleculeStructure]);
 
 	const skeletonProps = {
@@ -53,8 +59,8 @@ const MoleculeCard = () => {
 		backgroundColor: "#e4e4e7",
 		transition: {
 			type: "timing",
-			duration: 2000
-		}
+			duration: 1000,
+		},
 	};
 
 	return (
@@ -63,24 +69,24 @@ const MoleculeCard = () => {
 
 			<Skeleton.Group show={isLoading}>
 				<Skeleton
-					height={isLoading? 120 : 0}
+					height={isLoading ? 120 : 0}
 					width={"100%"}
-					{ ...skeletonProps }
+					{...skeletonProps}
 				>
-					<MoleculeInfoCard id={moleculeId} item={moleculeInfo} isLoading={isLoading} />
+					<MoleculeInfoCard
+						id={moleculeId}
+						item={moleculeInfo}
+						isLoading={isLoading}
+					/>
 				</Skeleton>
 
-				{
-					!isLoading &&
-						<View
-							className="h-[50vh] w-[3px] bg-white self-center absolute mt-[200px] -z-[1]"
-							style={style.boxShadow}
-						/>
-				}
-				<Skeleton
-					height={isLoading? 550 : 0}
-					{ ...skeletonProps }
-				>
+				{!isLoading && (
+					<View
+						className="h-[30vh] w-[3px] bg-white self-center absolute mt-[150px] -z-[1]"
+						style={style.boxShadow}
+					/>
+				)}
+				<Skeleton height={isLoading ? 550 : 0} {...skeletonProps}>
 					<MoleculeView moleculeStructure={moleculeStructure} />
 				</Skeleton>
 			</Skeleton.Group>
