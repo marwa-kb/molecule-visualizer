@@ -23,11 +23,6 @@ export default class Molecule {
 
 		this.atoms = this.setAtoms();
 		this.conects = this.setConects();
-
-		// const data = this.getExtremums();
-		// console.log("data = ", data)
-		// this.extremums = data.extremums;
-		// this.focalPoint = data.focalPoint;
 	}
 
 	setAtoms() {

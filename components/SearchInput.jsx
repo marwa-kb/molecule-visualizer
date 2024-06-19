@@ -26,15 +26,11 @@ const SearchInput = (props) => {
 				returnKeyType="search"
 				onSubmitEditing={() => query && router.push(`/search/${query}`)}
 			/>
-			{
-				query?.length > 0 &&
-					<Text
-						className="w-4 mx-1"
-						onPress={() => setQuery("")}
-					>
-						⨉
-					</Text>
-			}
+			{query?.length > 0 && (
+				<Text className="w-4 mx-1" onPress={() => setQuery("")}>
+					⨉
+				</Text>
+			)}
 		</View>
 	);
 };
