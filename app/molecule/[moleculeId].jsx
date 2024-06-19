@@ -1,18 +1,18 @@
-import { useLocalSearchParams } from "expo-router";
-import { Alert, Dimensions, Image, TouchableOpacity, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
 import { useState, useEffect, useRef } from "react";
-import { getMolecule } from "../../lib/apis";
+import { Alert, Image, TouchableOpacity, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { useLocalSearchParams } from "expo-router";
+import { StatusBar } from "expo-status-bar";
+import { captureRef } from "react-native-view-shot";
+import * as MediaLibrary from "expo-media-library";
+import { Skeleton } from "moti/skeleton";
+import { getMoleculeInfo, getMoleculeIdealStruct, getMoleculeModelStruct } from "../../lib/apis";
+import { icons } from "../../constants";
+import Molecule from "../../classes/Molecule";
+import style from "../../constants/style";
 import MoleculeInfoCard from "../../components/MoleculeInfoCard";
 import MoleculeView from "../../components/MoleculeView";
 import GoBack from "../../components/GoBack";
-import { StatusBar } from "expo-status-bar";
-import style from "../../constants/style";
-import Molecule from "../../classes/Molecule";
-import { Skeleton } from "moti/skeleton";
-import { captureRef, captureScreen } from "react-native-view-shot";
-import { icons } from "../../constants";
-import * as MediaLibrary from "expo-media-library";
 
 const MoleculeCard = () => {
 	console.log("in molecule card");
@@ -29,24 +29,17 @@ const MoleculeCard = () => {
 	useEffect(() => {
 		const fetchMoleculeData = async () => {
 			try {
-				const fetchedData = await getMolecule(moleculeId);
-				setMoleculeInfo(fetchedData);
+				const fetchedMoleculeInfo = await getMoleculeInfo(moleculeId);
+				setMoleculeInfo(fetchedMoleculeInfo);
 			} catch (error) {
 				Alert.alert("Error", error.message);
 			}
 
 			try {
-				let file = await fetch(`https://files.rcsb.org/ligands/
-								${moleculeId[0]}/${moleculeId}/
-								${moleculeId}_ideal.pdb`);
-				let res = await file.text();
-				if (res.length === 0) {
-					let file = await fetch(`https://files.rcsb.org/ligands/
-						${moleculeId[0]}/${moleculeId}/
-						${moleculeId}_model.pdb`);
-					res = await file.text();
-				}
-				setMoleculeStructure(new Molecule(res));
+				let fetchedMoleculeStruct = await getMoleculeIdealStruct(moleculeId);
+				if (fetchedMoleculeStruct.length === 0)
+					fetchedMoleculeStruct = await getMoleculeModelStruct(moleculeId);
+				setMoleculeStructure(new Molecule(fetchedMoleculeStruct));
 			} catch (error) {
 				Alert.alert("Error", error.message);
 			}
