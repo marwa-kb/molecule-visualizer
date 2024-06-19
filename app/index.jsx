@@ -29,7 +29,7 @@ export default function App() {
 						<Text className="text-2xl font-pbold mb-3 -tracking-[1px]">
 							Ligands
 						</Text>
-						<SearchInput placeholder="search a ligand" />
+						<SearchInput placeholder="Search for a ligand" />
 					</View>
 				)}
 				ListEmptyComponent={() => <ActivityIndicator />}

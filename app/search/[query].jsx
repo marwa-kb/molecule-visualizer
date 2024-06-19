@@ -24,7 +24,7 @@ const Search = () => {
 				ListHeaderComponent={() => (
 					<View className="pb-5 bg-primary">
 						<GoBack containerStyles="border bg-primary"/>
-						<SearchInput placeholder="Search for a molecule" initialQuery={query}/>
+						<SearchInput placeholder="Search for a ligand" initialQuery={query}/>
 						<Text className="text-xl font-psemibold -tracking-[1px] pl-1 mt-6 ml-1">Search Results</Text>
 					</View>
 				)}
