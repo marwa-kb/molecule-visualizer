@@ -6,9 +6,9 @@ import style from "../constants/style";
 const GoBack = (props) => {
 	return (
 		<TouchableOpacity
-			className="h-10 justify-center mb-5"
+			className={`w-10 h-10 justify-center ${props.margin || "mb-5"}`}
 			onPress={() => router.replace("/")}
-			activeOpacity={1}
+			activeOpacity={0.95}
 		>
 			<View
 				className={`w-10 h-10 rounded-full justify-center items-center ${props.containerStyles}`} 

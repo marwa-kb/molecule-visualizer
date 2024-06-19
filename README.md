@@ -7,7 +7,7 @@ For this project, I am coding a React Native application that allows visualizing
 ✅ Modelize atoms in 3D and the bonds connecting them together  
 ✅ Handle gestures to rotate the molecule and zoom in/out _→ I had to swith to AR in order to make it work_  
 ✅ Make better transitions/animations  
-🔲 Implement screenshot into gallery feature  
+✅ Implement screenshot into gallery feature  
 🔲 Implement atom selection feature  
 
 
