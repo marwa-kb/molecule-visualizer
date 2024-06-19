@@ -7,7 +7,7 @@ const EmptyState = (props) => {
 			<Text className="text-base font-regular">{props.title}</Text>
 			<Image
 				source={images.noResults}
-				className="w-[300px] h-[300px] mt-5"
+				className="w-[200px] h-[200px] mt-6"
 			/>
 		</View>
 	);
