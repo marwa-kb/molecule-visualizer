@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Alert, Image, TouchableOpacity, View } from "react-native";
+import { Alert, Image, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useLocalSearchParams } from "expo-router";
 import { StatusBar } from "expo-status-bar";
@@ -13,6 +13,7 @@ import style from "../../constants/style";
 import MoleculeInfoCard from "../../components/MoleculeInfoCard";
 import MoleculeView from "../../components/MoleculeView";
 import GoBack from "../../components/GoBack";
+import Animated, { FadeInUp, FadeOutUp } from "react-native-reanimated";
 
 const MoleculeCard = () => {
 	console.log("in molecule card");
@@ -21,11 +22,12 @@ const MoleculeCard = () => {
 	const [moleculeInfo, setMoleculeInfo] = useState(null);
 	const [moleculeStructure, setMoleculeStructure] = useState(null);
 	const [isLoading, setIsLoading] = useState(true);
+	const [isCapturing, setIsCapturing] = useState(false);
 
-	const [permissionResponse, requestPermission] =
-		MediaLibrary.usePermissions();
+	const [permissionResponse, requestPermission] = MediaLibrary.usePermissions();
 	const imageRef = useRef();
 
+	// fetching data: molecule info (name, formula) and molecule 3D structure
 	useEffect(() => {
 		const fetchMoleculeData = async () => {
 			try {
@@ -48,6 +50,7 @@ const MoleculeCard = () => {
 		fetchMoleculeData();
 	}, []);
 
+	// loading finished when all data is fetched
 	useEffect(() => {
 		if (moleculeInfo && moleculeStructure)
 			setTimeout(() => setIsLoading(false), 1500);
@@ -65,14 +68,15 @@ const MoleculeCard = () => {
 
 	const takeScreenshot = async () => {
 		try {
+			setIsCapturing(true);
 			if (permissionResponse.status !== "granted")
 				await requestPermission();
 			const localUri = await captureRef(imageRef, {handleGLSurfaceViewOnAndroid:true});
 			await MediaLibrary.saveToLibraryAsync(localUri);
-			if (localUri)
-				alert("Saved!");
 		} catch (error) {
 			Alert.alert("Error", error.message);
+		} finally {
+			setTimeout(() => setIsCapturing(false), 1500);
 		}
 	};
 
@@ -83,6 +87,20 @@ const MoleculeCard = () => {
 					<Skeleton height={40} {...skeletonProps}>
 						<GoBack containerStyles="bg-white" margin="mb-0" />
 					</Skeleton>
+
+					{
+						isCapturing &&
+							<Animated.View
+								className={`py-1 px-12 bg-zinc-950/80 rounded-[70px]
+									flex justify-center items-center`}
+								entering={FadeInUp}
+								exiting={FadeOutUp}
+							>
+								<Text className="text-white font-pregular text-xs">
+									Saved into gallery
+								</Text>
+							</Animated.View>
+					}
 
 					<Skeleton height={40} {...skeletonProps}>
 						<TouchableOpacity
@@ -96,7 +114,7 @@ const MoleculeCard = () => {
 							>
 								<Image
 									source={icons.save}
-									className="w-[20px] h-[20px] absolute"
+									className="w-[18px] h-[18px] absolute"
 								/>
 							</View>
 						</TouchableOpacity>
