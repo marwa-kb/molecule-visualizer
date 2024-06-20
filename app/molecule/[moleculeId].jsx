@@ -16,8 +16,6 @@ import GoBack from "../../components/GoBack";
 import Animated, { FadeInUp, FadeOutUp } from "react-native-reanimated";
 
 const MoleculeCard = () => {
-	console.log("in molecule card");
-
 	const { moleculeId } = useLocalSearchParams();
 	const [moleculeInfo, setMoleculeInfo] = useState(null);
 	const [moleculeStructure, setMoleculeStructure] = useState(null);
@@ -76,7 +74,7 @@ const MoleculeCard = () => {
 		} catch (error) {
 			Alert.alert("Error", error.message);
 		} finally {
-			setTimeout(() => setIsCapturing(false), 1500);
+			setTimeout(() => setIsCapturing(false), 1000);
 		}
 	};
 

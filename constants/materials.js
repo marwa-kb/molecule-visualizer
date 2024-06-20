@@ -706,5 +706,695 @@ ViroMaterials.createMaterials({
 		metalness: metalness,
 		lightingModel: lightingModel,
 		diffuseColor: "#EB0026"
+	},
+	TR_bond: {
+		roughness: 1.0,
+		metalness: 1.0,
+		lightingModel: "Constant",
+		diffuseColor: "#7777771A"
+	},
+	TR_H: {
+		roughness: 0.1,
+		metalness: 0.1,
+		lightingModel: "Lambert",
+		diffuseColor: "#FFFFFF4D"
+	},
+	TR_D: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#FFFFC04D"
+	},
+	TR_T: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#FFFFA04D"
+	},
+	TR_HE: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#D9FFFF4D"
+	},
+	TR_LI: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#CC80FF4D"
+	},
+	TR_BE: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#C2FF004D"
+	},
+	TR_B: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#FFB5B54D"
+	},
+	TR_C: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#3030304D"
+	},
+	TR_C13: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#5050504D"
+	},
+	TR_C14: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#4040404D"
+	},
+	TR_N: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#3050F84D"
+	},
+	TR_N15: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#1050504D"
+	},
+	TR_O: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#FF0D0D4D"
+	},
+	TR_F: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#90E0504D"
+	},
+	TR_NE: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#B3E3F54D"
+	},
+	TR_NA: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#AB5CF24D"
+	},
+	TR_MG: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#8AFF004D"
+	},
+	TR_AL: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#BFA6A64D"
+	},
+	TR_SI: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#F0C8A04D"
+	},
+	TR_P: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#FF80004D"
+	},
+	TR_S: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#FFFF304D"
+	},
+	TR_CL: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#1FF01F4D"
+	},
+	TR_AR: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#80D1E34D"
+	},
+	TR_K: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#8F40D44D"
+	},
+	TR_CA: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#3DFF004D"
+	},
+	TR_SC: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#E6E6E64D"
+	},
+	TR_TI: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#BFC2C74D"
+	},
+	TR_V: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#A6A6AB4D"
+	},
+	TR_CR: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#8A99C74D"
+	},
+	TR_MN: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#9C7AC74D"
+	},
+	TR_FE: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#E066334D"
+	},
+	TR_CO: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#F090A04D"
+	},
+	TR_NI: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#50D0504D"
+	},
+	TR_CU: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#C880334D"
+	},
+	TR_ZN: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#7D80B04D"
+	},
+	TR_GA: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#C28F8F4D"
+	},
+	TR_GE: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#668F8F4D"
+	},
+	TR_AS: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#BD80E34D"
+	},
+	TR_SE: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#FFA1004D"
+	},
+	TR_BR: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#A629294D"
+	},
+	TR_KR: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#5CB8D14D"
+	},
+	TR_RB: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#702EB04D"
+	},
+	TR_SR: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#00FF004D"
+	},
+	TR_Y: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#94FFFF4D"
+	},
+	TR_ZR: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#94E0E04D"
+	},
+	TR_NB: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#73C2C94D"
+	},
+	TR_MO: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#54B5B54D"
+	},
+	TR_TC: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#3B9E9E4D"
+	},
+	TR_RU: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#248F8F4D"
+	},
+	TR_RH: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#0A7D8C4D"
+	},
+	TR_PD: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#0069854D"
+	},
+	TR_AG: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#C0C0C04D"
+	},
+	TR_CD: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#FFD98F4D"
+	},
+	TR_IN: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#A675734D"
+	},
+	TR_SN: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#6680804D"
+	},
+	TR_SB: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#9E63B54D"
+	},
+	TR_TE: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#D47A004D"
+	},
+	TR_I: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#9400944D"
+	},
+	TR_XE: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#429EB04D"
+	},
+	TR_CS: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#57178F4D"
+	},
+	TR_BA: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#00C9004D"
+	},
+	TR_LA: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#70D4FF4D"
+	},
+	TR_CE: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#FFFFC74D"
+	},
+	TR_PR: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#D9FFC74D"
+	},
+	TR_ND: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#C7FFC74D"
+	},
+	TR_PM: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#A3FFC74D"
+	},
+	TR_SM: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#8FFFC74D"
+	},
+	TR_EU: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#61FFC74D"
+	},
+	TR_GD: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#45FFC74D"
+	},
+	TR_TB: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#30FFC74D"
+	},
+	TR_DY: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#1FFFC74D"
+	},
+	TR_HO: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#00FF9C4D"
+	},
+	TR_ER: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#00E6754D"
+	},
+	TR_TM: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#00D4524D"
+	},
+	TR_YB: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#00BF384D"
+	},
+	TR_LU: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#00AB244D"
+	},
+	TR_HF: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#4DC2FF4D"
+	},
+	TR_TA: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#4DA6FF4D"
+	},
+	TR_W: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#2194D64D"
+	},
+	TR_RE: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#267DAB4D"
+	},
+	TR_OS: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#2666964D"
+	},
+	TR_IR: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#1754874D"
+	},
+	TR_PT: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#D0D0E04D"
+	},
+	TR_AU: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#FFD1234D"
+	},
+	TR_HG: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#B8B8D04D"
+	},
+	TR_TL: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#A6544D4D"
+	},
+	TR_PB: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#5759614D"
+	},
+	TR_BI: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#9E4FB54D"
+	},
+	TR_PO: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#AB5C004D"
+	},
+	TR_AT: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#754F454D"
+	},
+	TR_RN: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#4282964D"
+	},
+	TR_FR: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#4200664D"
+	},
+	TR_RA: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#007D004D"
+	},
+	TR_AC: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#70ABFA4D"
+	},
+	TR_TH: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#00BAFF4D"
+	},
+	TR_PA: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#00A1FF4D"
+	},
+	TR_U: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#008FFF4D"
+	},
+	TR_NP: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#0080FF4D"
+	},
+	TR_PU: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#006BFF4D"
+	},
+	TR_AM: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#545CF24D"
+	},
+	TR_CM: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#785CE34D"
+	},
+	TR_BK: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#8A4FE34D"
+	},
+	TR_CF: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#A136D44D"
+	},
+	TR_ES: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#B31FD44D"
+	},
+	TR_FM: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#B31FBA4D"
+	},
+	TR_MD: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#B30DA64D"
+	},
+	TR_NO: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#BD0D874D"
+	},
+	TR_LR: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#C700664D"
+	},
+	TR_RF: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#CC00594D"
+	},
+	TR_DB: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#D1004F4D"
+	},
+	TR_SG: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#D900454D"
+	},
+	TR_BH: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#E000384D"
+	},
+	TR_HS: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#E6002E4D"
+	},
+	TR_MT: {
+		roughness: roughness,
+		metalness: metalness,
+		lightingModel: lightingModel,
+		diffuseColor: "#EB00264D"
 	}
 });

@@ -27,7 +27,7 @@ const MoleculeInfoCard = (props) => {
 	return (
 		<TouchableOpacity
 			className={`${props.isLoading ? "h-[120px] text-primary" : "text-black"}
-						mb-5 py-4 px-5 z-[0] rounded-[20px] bg-white`}
+						mb-5 py-4 px-5 z-0 rounded-[20px] bg-white`}
 			style={style.boxShadow}
 			activeOpacity={props.touchable ? 0.8 : 1}
 			onPress={() => props.touchable && router.push(`/molecule/${props.id}`)}
