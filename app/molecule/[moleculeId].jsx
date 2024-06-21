@@ -82,10 +82,7 @@ const MoleculeCard = () => {
 		<SafeAreaView className="h-full bg-primary justify-start relative">
 			<Skeleton.Group show={isLoading}>
 				<View className="flex flex-row justify-between p-6 pb-0">
-					<Skeleton height={40} {...skeletonProps}>
-						<GoBack containerStyles="bg-white" margin="mb-0" />
-					</Skeleton>
-
+					<GoBack containerStyles="bg-white" margin="mb-0" isLoading={isLoading} />
 					{
 						isCapturing &&
 							<Animated.View
@@ -100,23 +97,22 @@ const MoleculeCard = () => {
 							</Animated.View>
 					}
 
-					<Skeleton height={40} {...skeletonProps}>
-						<TouchableOpacity
-							className="w-10 h-10 justify-center"
-							onPress={takeScreenshot}
-							activeOpacity={0.95}
+					<TouchableOpacity
+						className="w-10 h-10 justify-center"
+						onPress={takeScreenshot}
+						activeOpacity={0.95}
+						disabled={isLoading}
+					>
+						<View
+							className="w-10 h-10 rounded-full justify-center items-center bg-white"
+							style={style.boxShadow}
 						>
-							<View
-								className="w-10 h-10 rounded-full justify-center items-center bg-white"
-								style={style.boxShadow}
-							>
-								<Image
-									source={icons.save}
-									className="w-[18px] h-[18px] absolute"
-								/>
-							</View>
-						</TouchableOpacity>
-					</Skeleton>
+							<Image
+								source={icons.save}
+								className="w-[18px] h-[18px] absolute"
+							/>
+						</View>
+					</TouchableOpacity>
 				</View>
 
 				<View ref={imageRef} collapsable={false} className="bg-primary px-6 pt-5">
@@ -138,7 +134,7 @@ const MoleculeCard = () => {
 							style={style.boxShadow}
 						/>
 					)}
-					<Skeleton height={isLoading ? 550 : 0} {...skeletonProps}>
+					<Skeleton height={550} {...skeletonProps}>
 						<MoleculeView moleculeStructure={moleculeStructure} />
 					</Skeleton>
 				</View>

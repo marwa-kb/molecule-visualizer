@@ -1,15 +1,14 @@
 import { memo, useEffect, useRef, useState } from "react";
 import { View, TouchableOpacity, Image, Text } from "react-native";
 import { ViroARSceneNavigator } from "@viro-community/react-viro";
-import MoleculeScene from "./MoleculeScene";
-import icons from "../constants/icons";
-import style from "../constants/style";
 import { setStatusBarBackgroundColor } from "expo-status-bar";
 import * as NavigationBar from "expo-navigation-bar";
 import Constants from "expo-constants";
+import MoleculeScene from "./MoleculeScene";
+import icons from "../constants/icons";
+import style from "../constants/style";
 
 const MoleculeView = (props) => {
-	console.log("== VIEW")
 	const molecule = props.moleculeStructure;
 
 	const [selectedAtom, setSelectedAtom] = useState(null);
@@ -20,7 +19,7 @@ const MoleculeView = (props) => {
 
 	const viewRef = useRef();
 	const viewSize1 = "w-[100%] min-h-[550px] h-[70%] rounded-[20px]";
-	const viewSize2 = "absolute w-[100vw] h-[101vh] rounded-0 z-10 m-auto";
+	const viewSize2 = "absolute w-[100vw] h-[101vh] z-10 rounded-0 m-auto";
 	const [viewSize, setViewSize] = useState(viewSize1);
 
 	useEffect(() => {
@@ -59,7 +58,9 @@ const MoleculeView = (props) => {
 		>
 			<View className="flex flex-row justify-between ml-4">
 				{selectedAtom && (
-					<Text className="font-pregular text-sm">Selected atom: {selectedAtom.element}</Text>
+					<Text className="font-pregular text-sm">
+						Selected atom: {selectedAtom.element} <Text className="text-xs">({selectedAtom.id})</Text>
+					</Text>
 				)}
 				<TouchableOpacity
 					className=" flex items-end w-8 h-8 ml-auto mr-4"

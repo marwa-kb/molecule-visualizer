@@ -11,7 +11,6 @@ import {
 import "../constants/materials";
 
 const MoleculeScene = (props) => {
-	console.log("=== SCENE")
 	const molecule = props.sceneNavigator.viroAppProps.molecule;
 	const selectedAtom = props.sceneNavigator.viroAppProps.selectedAtom;
 	const setSelectedAtom = props.sceneNavigator.viroAppProps.setSelectedAtom;
@@ -40,10 +39,7 @@ const MoleculeScene = (props) => {
 						: trColor
 				}
 				position={atom.coordinates}
-				onClick={(e) => {
-					console.log(e)
-					setSelectedAtom({ snb: atom.snb, element: atom.element });
-				}}
+				onClick={() => setSelectedAtom({ id: atom.id, snb: atom.snb, element: atom.element })}
 			/>
 		);
 	});
@@ -73,11 +69,7 @@ const MoleculeScene = (props) => {
 
 	return (
 		<ViroARScene
-			onClick={() => {
-				console.log("test ici")
-				if (selectedAtom)
-					setSelectedAtom(null);
-			}}
+			onClick={() => selectedAtom && setSelectedAtom(null)}
 		>
 			<ViroSkyBox color={"#FFFFFF"} />
 			{molecule && (
@@ -90,10 +82,7 @@ const MoleculeScene = (props) => {
 					<Lights />
 					<ViroNode
 						scale={moleculeScale}
-						onDrag={() => {
-							if (selectedAtom)
-								setSelectedAtom(null);
-						}}
+						onDrag={() => selectedAtom && setSelectedAtom(null)}
 						onPinch={scaleMolecule}
 					>
 						{atoms}

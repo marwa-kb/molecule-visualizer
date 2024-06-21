@@ -9,6 +9,7 @@ const GoBack = (props) => {
 			className={`w-10 h-10 justify-center ${props.margin || "mb-5"}`}
 			onPress={() => router.back()}
 			activeOpacity={0.95}
+			disabled={props.isLoading}
 		>
 			<View
 				className={`w-10 h-10 rounded-full justify-center items-center ${props.containerStyles}`} 
