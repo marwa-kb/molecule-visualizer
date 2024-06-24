@@ -12,7 +12,6 @@ export default function App() {
 	const [length, setLength] = useState(20);
 	const data = ligands.slice(0, length);
 
-	// must be checked
 	if (!status)
 		requestPermission();
 

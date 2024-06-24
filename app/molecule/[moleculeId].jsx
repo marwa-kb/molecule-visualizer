@@ -6,7 +6,7 @@ import { StatusBar } from "expo-status-bar";
 import { captureRef } from "react-native-view-shot";
 import * as MediaLibrary from "expo-media-library";
 import { Skeleton } from "moti/skeleton";
-import { getMoleculeInfo, getMoleculeIdealStruct, getMoleculeModelStruct } from "../../lib/apis";
+import { getMoleculeInfo, getMoleculeIdealStruct } from "../../lib/apis";
 import { icons } from "../../constants";
 import Molecule from "../../classes/Molecule";
 import style from "../../constants/style";
@@ -19,6 +19,7 @@ const MoleculeCard = () => {
 	const { moleculeId } = useLocalSearchParams();
 	const [moleculeInfo, setMoleculeInfo] = useState(null);
 	const [moleculeStructure, setMoleculeStructure] = useState(null);
+	const [error, setError] = useState(false);
 	const [isLoading, setIsLoading] = useState(true);
 	const [isCapturing, setIsCapturing] = useState(false);
 
@@ -36,12 +37,11 @@ const MoleculeCard = () => {
 			}
 
 			try {
-				let fetchedMoleculeStruct = await getMoleculeIdealStruct(moleculeId);
-				if (fetchedMoleculeStruct.length === 0)
-					fetchedMoleculeStruct = await getMoleculeModelStruct(moleculeId);
+				const fetchedMoleculeStruct = await getMoleculeIdealStruct(moleculeId);
 				setMoleculeStructure(new Molecule(fetchedMoleculeStruct));
 			} catch (error) {
 				Alert.alert("Error", error.message);
+				setError(true);
 			}
 		};
 
@@ -50,9 +50,9 @@ const MoleculeCard = () => {
 
 	// loading finished when all data is fetched
 	useEffect(() => {
-		if (moleculeInfo && moleculeStructure)
+		if (error || (moleculeInfo && moleculeStructure))
 			setTimeout(() => setIsLoading(false), 1500);
-	}, [moleculeInfo, moleculeStructure]);
+	}, [error, moleculeInfo, moleculeStructure]);
 
 	const skeletonProps = {
 		radius: 20,
@@ -66,10 +66,20 @@ const MoleculeCard = () => {
 
 	const takeScreenshot = async () => {
 		try {
+			if (permissionResponse.status !== "granted") {
+				const permission = await requestPermission();
+				if (permission.status !== "granted") {
+					Alert.alert(
+						"Error",
+						"Please allow Molecule Visualizer to access your files in order to save this visualization into your gallery."
+					);
+					return;
+				}
+			}
 			setIsCapturing(true);
-			if (permissionResponse.status !== "granted")
-				await requestPermission();
-			const localUri = await captureRef(imageRef, {handleGLSurfaceViewOnAndroid:true});
+			const localUri = await captureRef(imageRef, {
+				handleGLSurfaceViewOnAndroid: true,
+			});
 			await MediaLibrary.saveToLibraryAsync(localUri);
 		} catch (error) {
 			Alert.alert("Error", error.message);
@@ -82,20 +92,23 @@ const MoleculeCard = () => {
 		<SafeAreaView className="h-full bg-primary justify-start relative">
 			<Skeleton.Group show={isLoading}>
 				<View className="flex flex-row justify-between p-6 pb-0">
-					<GoBack containerStyles="bg-white" margin="mb-0" isLoading={isLoading} />
-					{
-						isCapturing &&
-							<Animated.View
-								className={`py-1 px-12 bg-zinc-950/80 rounded-[70px]
+					<GoBack
+						containerStyles="bg-white"
+						margin="mb-0"
+						isLoading={isLoading}
+					/>
+					{isCapturing && (
+						<Animated.View
+							className={`py-1 px-12 bg-zinc-950/80 rounded-[70px]
 									flex justify-center items-center`}
-								entering={FadeInUp}
-								exiting={FadeOutUp}
-							>
-								<Text className="text-white font-pregular text-xs">
-									Saved into gallery
-								</Text>
-							</Animated.View>
-					}
+							entering={FadeInUp}
+							exiting={FadeOutUp}
+						>
+							<Text className="text-white font-pregular text-xs">
+								Saved into gallery
+							</Text>
+						</Animated.View>
+					)}
 
 					<TouchableOpacity
 						className="w-10 h-10 justify-center"
@@ -115,7 +128,11 @@ const MoleculeCard = () => {
 					</TouchableOpacity>
 				</View>
 
-				<View ref={imageRef} collapsable={false} className="bg-primary px-6 pt-5">
+				<View
+					ref={imageRef}
+					collapsable={false}
+					className="bg-primary px-6 pt-5"
+				>
 					<Skeleton
 						height={isLoading ? 120 : 0}
 						width={"100%"}
@@ -128,15 +145,18 @@ const MoleculeCard = () => {
 						/>
 					</Skeleton>
 
-					{!isLoading && (
+					{!isLoading && !error && (
 						<View
 							className="h-[30vh] w-[4px] bg-white self-center absolute mt-[100px] -z-[1]"
 							style={style.boxShadow}
 						/>
 					)}
-					<Skeleton height={550} {...skeletonProps}>
-						<MoleculeView moleculeStructure={moleculeStructure} />
+						{
+							!error && 
+					<Skeleton height={550} width={"100%"} {...skeletonProps}>
+							<MoleculeView moleculeStructure={moleculeStructure} />
 					</Skeleton>
+						}
 				</View>
 			</Skeleton.Group>
 

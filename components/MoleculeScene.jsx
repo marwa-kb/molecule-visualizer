@@ -22,7 +22,7 @@ const MoleculeScene = (props) => {
 		if (molecule)
 		{
 			const data = molecule.getExtremums();
-			setCamPos([0, 0, data.extremums[5] + data.extremums[1] * 3 + 1]); // must be checked
+			setCamPos([0, 0, data.extremums[5] + data.extremums[1] * 3 + 1]);
 			setFocalPoint(data.focalPoint);
 		}
 	}, [molecule]);
@@ -68,9 +68,7 @@ const MoleculeScene = (props) => {
 	};
 
 	return (
-		<ViroARScene
-			onClick={() => selectedAtom && setSelectedAtom(null)}
-		>
+		<ViroARScene onClick={() => selectedAtom && setSelectedAtom(null)}>
 			<ViroSkyBox color={"#FFFFFF"} />
 			{molecule && (
 				<>
