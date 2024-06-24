@@ -7,6 +7,7 @@ import Constants from "expo-constants";
 import MoleculeScene from "./MoleculeScene";
 import icons from "../constants/icons";
 import style from "../constants/style";
+import { useCameraPermissions } from "expo-camera";
 
 const MoleculeView = (props) => {
 	const molecule = props.moleculeStructure;
@@ -21,6 +22,10 @@ const MoleculeView = (props) => {
 	const viewSize1 = "w-[100%] min-h-[550px] h-[70%] rounded-[20px]";
 	const viewSize2 = "absolute w-[100vw] h-[101vh] z-10 rounded-0 m-auto";
 	const [viewSize, setViewSize] = useState(viewSize1);
+
+	const [permission, requestPermission] = useCameraPermissions();
+	if (!permission?.granted)
+		requestPermission();
 
 	useEffect(() => {
 		return (() => NavigationBar.setBackgroundColorAsync("#E6F5E0"));
@@ -44,6 +49,20 @@ const MoleculeView = (props) => {
 			setTimeout(() => NavigationBar.setBackgroundColorAsync("#E6F5E0"), 100);
 		}
 	};
+
+	if (!permission || !permission.granted)
+		return (<View
+					className="bg-white w-[100%] h-[550px] rounded-[20px]
+						flex justify-center items-center p-10"
+					style={style.boxShadow}
+				>
+					<Text className="text-xl -mb-4">⚠️{"\n"}</Text>
+					<Text className="font-pregular text-center">
+						Please allow Molecule Visualizer to access your camera in order
+						to see the 3D visualization, as it uses Augmented Reality
+					</Text>
+				</View>
+			);
 
 	return (
 		<View
@@ -72,6 +91,7 @@ const MoleculeView = (props) => {
 					/>
 				</TouchableOpacity>
 			</View>
+
 			<ViroARSceneNavigator
 				initialScene={{ scene: MoleculeScene }}
 				viroAppProps={{
