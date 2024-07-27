@@ -1,13 +1,14 @@
-import { StatusBar } from "expo-status-bar";
+import { useState } from "react";
 import { Text, View, FlatList, ActivityIndicator } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import SearchInput from "../components/SearchInput";
-import MoleculeInfoCard from "../components/MoleculeInfoCard";
-import ligands from "../constants/ligands";
-import { useState } from "react";
+import { StatusBar } from "expo-status-bar";
 import * as MediaLibrary from "expo-media-library";
+import SearchInput from "../components/SearchInput";
+import MoleculeSmallInfoCard from "../components/MoleculeSmallInfoCard";
+import ligands from "../constants/ligands";
 
 export default function App() {
+	console.log("INDEX")
 	const [status, requestPermission] = MediaLibrary.usePermissions();
 	const [length, setLength] = useState(20);
 	const data = ligands.slice(0, length);
@@ -21,7 +22,7 @@ export default function App() {
 				data={data}
 				keyExtractor={(molecule) => molecule}
 				renderItem={({ item }) => {
-					return <MoleculeInfoCard id={item} touchable />;
+					return <MoleculeSmallInfoCard id={item} />;
 				}}
 				ListHeaderComponent={() => (
 					<View className="pb-5 bg-primary">

@@ -10,12 +10,13 @@ import { getMoleculeInfo, getMoleculeIdealStruct } from "../../lib/apis";
 import { icons } from "../../constants";
 import Molecule from "../../classes/Molecule";
 import style from "../../constants/style";
-import MoleculeInfoCard from "../../components/MoleculeInfoCard";
+import MoleculeBigInfoCard from "../../components/MoleculeBigInfoCard";
 import MoleculeView from "../../components/MoleculeView";
 import GoBack from "../../components/GoBack";
 import Animated, { FadeInUp, FadeOutUp } from "react-native-reanimated";
 
 const MoleculeCard = () => {
+	console.log("molecule")
 	const { moleculeId } = useLocalSearchParams();
 	const [moleculeInfo, setMoleculeInfo] = useState(null);
 	const [moleculeStructure, setMoleculeStructure] = useState(null);
@@ -46,6 +47,8 @@ const MoleculeCard = () => {
 		};
 
 		fetchMoleculeData();
+
+		return(() => console.log("UNMOUNT molecule"))
 	}, []);
 
 	// loading finished when all data is fetched
@@ -76,11 +79,11 @@ const MoleculeCard = () => {
 					return;
 				}
 			}
-			setIsCapturing(true);
 			const localUri = await captureRef(imageRef, {
 				handleGLSurfaceViewOnAndroid: true,
 			});
 			await MediaLibrary.saveToLibraryAsync(localUri);
+			setIsCapturing(true);
 		} catch (error) {
 			Alert.alert("Error", error.message);
 		} finally {
@@ -134,14 +137,13 @@ const MoleculeCard = () => {
 					className="bg-primary px-6 pt-5"
 				>
 					<Skeleton
-						height={isLoading ? 120 : 0}
+						height={isLoading ? 130 : 0}
 						width={"100%"}
 						{...skeletonProps}
 					>
-						<MoleculeInfoCard
+						<MoleculeBigInfoCard
 							id={moleculeId}
 							item={moleculeInfo}
-							isLoading={isLoading}
 						/>
 					</Skeleton>
 
@@ -151,12 +153,11 @@ const MoleculeCard = () => {
 							style={style.boxShadow}
 						/>
 					)}
-						{
-							!error && 
-					<Skeleton height={550} width={"100%"} {...skeletonProps}>
-							<MoleculeView moleculeStructure={moleculeStructure} />
-					</Skeleton>
-						}
+					{!error && 
+						<Skeleton height={550} width={"100%"} {...skeletonProps}>
+								<MoleculeView moleculeStructure={moleculeStructure} />
+						</Skeleton>
+					}
 				</View>
 			</Skeleton.Group>
 

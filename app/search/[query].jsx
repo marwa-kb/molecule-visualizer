@@ -1,7 +1,7 @@
 import { View, Text, FlatList } from "react-native";
 import { useLocalSearchParams } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
-import MoleculeInfoCard from "../../components/MoleculeInfoCard";
+import MoleculeSmallInfoCard from "../../components/MoleculeSmallInfoCard";
 import SearchInput from "../../components/SearchInput";
 import EmptyState from "../../components/EmptyState";
 import GoBack from "../../components/GoBack";
@@ -19,7 +19,7 @@ const Search = () => {
 				data={result}
 				keyExtractor={(item) => item}
 				renderItem={({ item }) => (
-					<MoleculeInfoCard id={item} touchable />
+					<MoleculeSmallInfoCard id={item} />
 				)}
 				ListHeaderComponent={() => (
 					<View className="pb-5 bg-primary">

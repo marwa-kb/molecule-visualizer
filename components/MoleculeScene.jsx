@@ -11,6 +11,7 @@ import {
 import "../constants/materials";
 
 const MoleculeScene = (props) => {
+	console.log("molecule scene")
 	const molecule = props.sceneNavigator.viroAppProps.molecule;
 	const selectedAtom = props.sceneNavigator.viroAppProps.selectedAtom;
 	const setSelectedAtom = props.sceneNavigator.viroAppProps.setSelectedAtom;
@@ -22,7 +23,7 @@ const MoleculeScene = (props) => {
 		if (molecule)
 		{
 			const data = molecule.getExtremums();
-			setCamPos([0, 0, data.extremums[5] + data.extremums[1] * 3 + 1]);
+			setCamPos([0, 0, (data.extremums[1] + data.extremums[5]) / 2 + 2]);
 			setFocalPoint(data.focalPoint);
 		}
 	}, [molecule]);
