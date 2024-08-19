@@ -10,7 +10,6 @@ import style from "../constants/style";
 import { useCameraPermissions } from "expo-camera";
 
 const MoleculeView = (props) => {
-	console.log("= VIEW")
 	const molecule = props.moleculeStructure;
 
 	const [selectedAtom, setSelectedAtom] = useState(null);

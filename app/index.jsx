@@ -8,7 +8,6 @@ import MoleculeSmallInfoCard from "../components/MoleculeSmallInfoCard";
 import ligands from "../constants/ligands";
 
 export default function App() {
-	console.log("INDEX")
 	const [status, requestPermission] = MediaLibrary.usePermissions();
 	const [length, setLength] = useState(20);
 	const data = ligands.slice(0, length);

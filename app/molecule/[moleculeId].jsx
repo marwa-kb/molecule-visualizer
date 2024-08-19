@@ -16,7 +16,6 @@ import GoBack from "../../components/GoBack";
 import Animated, { FadeInUp, FadeOutUp } from "react-native-reanimated";
 
 const MoleculeCard = () => {
-	console.log("CARD")
 	const { moleculeId } = useLocalSearchParams();
 	const [moleculeInfo, setMoleculeInfo] = useState(null);
 	const [moleculeStructure, setMoleculeStructure] = useState(null);
