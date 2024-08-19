@@ -10,7 +10,7 @@ import style from "../constants/style";
 import { useCameraPermissions } from "expo-camera";
 
 const MoleculeView = (props) => {
-	console.log("molecule view")
+	console.log("= VIEW")
 	const molecule = props.moleculeStructure;
 
 	const [selectedAtom, setSelectedAtom] = useState(null);
@@ -52,6 +52,7 @@ const MoleculeView = (props) => {
 	};
 
 	if (!permission || !permission.granted)
+	{
 		return (<View
 					className="bg-white w-[100%] h-[550px] rounded-[20px]
 						flex justify-center items-center p-10"
@@ -64,6 +65,7 @@ const MoleculeView = (props) => {
 					</Text>
 				</View>
 			);
+	}
 
 	return (
 		<View

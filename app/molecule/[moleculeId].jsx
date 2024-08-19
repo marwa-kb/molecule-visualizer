@@ -16,7 +16,7 @@ import GoBack from "../../components/GoBack";
 import Animated, { FadeInUp, FadeOutUp } from "react-native-reanimated";
 
 const MoleculeCard = () => {
-	console.log("molecule")
+	console.log("CARD")
 	const { moleculeId } = useLocalSearchParams();
 	const [moleculeInfo, setMoleculeInfo] = useState(null);
 	const [moleculeStructure, setMoleculeStructure] = useState(null);
@@ -48,7 +48,7 @@ const MoleculeCard = () => {
 
 		fetchMoleculeData();
 
-		return(() => console.log("UNMOUNT molecule"))
+		return(() => setMoleculeStructure(null));
 	}, []);
 
 	// loading finished when all data is fetched

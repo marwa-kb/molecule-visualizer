@@ -11,7 +11,7 @@ import {
 import "../constants/materials";
 
 const MoleculeScene = (props) => {
-	console.log("molecule scene")
+	console.log("== SCENE")
 	const molecule = props.sceneNavigator.viroAppProps.molecule;
 	const selectedAtom = props.sceneNavigator.viroAppProps.selectedAtom;
 	const setSelectedAtom = props.sceneNavigator.viroAppProps.setSelectedAtom;
@@ -27,6 +27,7 @@ const MoleculeScene = (props) => {
 			setFocalPoint(data.focalPoint);
 		}
 	}, [molecule]);
+	console.log("molecule =", molecule)
 
 	const atoms = molecule?.atoms.map((atom) => {
 		const trColor = "TR_" + atom.element;

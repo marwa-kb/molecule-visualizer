@@ -18,9 +18,7 @@ class Conect {
 
 export default class Molecule {
 	constructor(fileContent) {
-		this.fileContent = fileContent;
 		this.lines = fileContent.split('\n');
-
 		this.atoms = this.setAtoms();
 		this.conects = this.setConects();
 	}

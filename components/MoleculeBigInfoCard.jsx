@@ -4,7 +4,6 @@ import FormattedFormula from "./FormattedFormula";
 import style from "../constants/style";
 
 const MoleculeBigInfoCard = (props) => {
-	console.log("BIG INFO")
 	const [height, setHeight] = useState("h-[130px]");
 
 	return (
