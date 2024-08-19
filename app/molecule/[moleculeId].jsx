@@ -136,7 +136,7 @@ const MoleculeCard = () => {
 					className="bg-primary px-6 pt-5"
 				>
 					<Skeleton
-						height={isLoading ? 130 : 0}
+						height={isLoading ? 114 : 0}
 						width={"100%"}
 						{...skeletonProps}
 					>

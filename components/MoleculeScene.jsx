@@ -11,7 +11,6 @@ import {
 import "../constants/materials";
 
 const MoleculeScene = (props) => {
-	console.log("== SCENE")
 	const molecule = props.sceneNavigator.viroAppProps.molecule;
 	const selectedAtom = props.sceneNavigator.viroAppProps.selectedAtom;
 	const setSelectedAtom = props.sceneNavigator.viroAppProps.setSelectedAtom;
@@ -23,11 +22,10 @@ const MoleculeScene = (props) => {
 		if (molecule)
 		{
 			const data = molecule.getExtremums();
-			setCamPos([0, 0, (data.extremums[1] + data.extremums[5]) / 2 + 2]);
+			setCamPos([0, 0, ((data.extremums[1] + data.extremums[5]) * 2) + 1]);
 			setFocalPoint(data.focalPoint);
 		}
 	}, [molecule]);
-	console.log("molecule =", molecule)
 
 	const atoms = molecule?.atoms.map((atom) => {
 		const trColor = "TR_" + atom.element;
@@ -64,32 +62,33 @@ const MoleculeScene = (props) => {
 				moleculeScale[1] * scaleFactor,
 				moleculeScale[2] * scaleFactor,
 			];
-			if (newScale[0] > 0.5 && newScale[0] < 5)
+			if (newScale[0] > 0.25 && newScale[0] < 5)
 				setMoleculeScale(newScale);
 		}
 	};
 
 	return (
 		<ViroARScene onClick={() => selectedAtom && setSelectedAtom(null)}>
-			<ViroSkyBox color={"#FFFFFF"} />
-			{molecule && (
-				<>
-					<ViroOrbitCamera
-						position={camPos}
-						focalPoint={focalPoint}
-						active={true}
-					/>
-					<Lights />
-					<ViroNode
-						scale={moleculeScale}
-						onDrag={() => selectedAtom && setSelectedAtom(null)}
-						onPinch={scaleMolecule}
-					>
-						{atoms}
-						{bonds}
-					</ViroNode>
-				</>
-			)}
+			<ViroNode onPinch={scaleMolecule}>
+				<ViroSkyBox color={"#FFFFFF"} />
+				{molecule && (
+					<>
+						<ViroOrbitCamera
+							position={camPos}
+							focalPoint={focalPoint}
+							active={true}
+						/>
+						<Lights />
+						<ViroNode
+							scale={moleculeScale}
+							onDrag={() => selectedAtom && setSelectedAtom(null)}
+						>
+							{atoms}
+							{bonds}
+						</ViroNode>
+					</>
+				)}
+			</ViroNode>
 		</ViroARScene>
 	);
 };
